@@ -2,11 +2,32 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import rd3 from 'rd3'
-import { Tab, Tabs } from 'react-bootstrap'
 
 const LineChart = rd3.LineChart
 
 class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+        metricsSelected: []
+      }
+    this.selectMetric=this.selectMetric.bind(this)
+  }
+
+  selectMetric(metric){
+    const metricsSelected = this.state.metricsSelected
+    const index = metricsSelected.indexOf(metric)
+    if (index !== -1) {
+      metricsSelected.splice(index, 1)
+    }
+    else {
+      metricsSelected.push(metric)
+    }
+    this.setState({
+      metricsSelected,
+    })
+  }
+
   render() {
     return (
       <div className="App">
@@ -14,16 +35,21 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1>Welcome to D2F</h1>
         </div>
-        <Landing />
-        <ControlledTabs />
+
       </div>
     );
   }
 }
 
+// <Main
+//   selectMetric={this.selectMetric}
+//   metricsSelected={this.state.metricsSelected}/>
+
 export default App;
 
-const Landing = () => {
+export const Dicknuts = () => (<div><h1>Dicknuts!</h1></div>)
+
+export const Main = ({ selectMetric, metricsSelected }) => {
 
   const metrics = [
     'Opens',
@@ -34,30 +60,51 @@ const Landing = () => {
     'Hard Bounces',
     'Soft Bounces'
   ]
+
   return (
     <div className="main">
       <h2>How Are We Doing?</h2>
       <Sidebar
-        metrics={ metrics }
+        selectMetric={selectMetric}
+        metrics={metrics}
+        metricsSelected={metricsSelected}
         />
       <Graphs />
     </div>
   )
 }
 
-const Sidebar = ({ metrics }) => (
-  <div className="sidebar">
-    <h3>Choose your Metrics</h3>
-    { metrics.map( metric => <Checkbox key={metric} metric={metric}/> )}
-  </div>
-)
+const Sidebar = ({ metrics, selectMetric, metricsSelected }) => {
 
-const Checkbox = ({ metric }) => {
+  return (
+
+    <div className="sidebar">
+      <h3>Choose your Metrics</h3>
+      { metrics.map( metric => <Checkbox
+        selectMetric={selectMetric}
+        key={metric}
+        metric={metric}
+        checked={metricsSelected.includes(metric)}/> )}
+    </div>
+  )
+}
+
+// <form  onSubmit={onSubmit}>
+//   <button type="submit">Submit</button>
+// </form>
+
+const Checkbox = ({ metric, selectMetric, checked }) => {
+
   return (
     <div className="checkbox">
       <ul>
         <li>{metric}</li>
-        <li><input type="checkbox" ></input></li>
+        <li><input
+          type="checkbox"
+          value={metric}
+          onChange={ () => selectMetric(metric) }
+          checked={checked}
+          ></input></li>
       </ul>
     </div>
   )
@@ -81,31 +128,7 @@ const months = [
 const getRandoData = () => new Array(12).fill().map( n => Math.random().toFixed(3) * 1000 )
 
 
-class ControlledTabs extends React.Component {
-  constructor(){
-    super()
-  }
-  state = {
-    key: 1
-  }
 
-  handleSelect(key) {
-    // alert('selected ' + key);
-    this.setState({key});
-  }
-
-  render() {
-    return (
-      <div className="graphs">
-        <Tabs activeKey={this.state.key} onSelect={this.handleSelect} id="controlled-tab-example">
-          <Tab eventKey={1} title="Tab 1">Tab 1 content</Tab>
-          <Tab eventKey={2} title="Tab 2">Tab 2 content</Tab>
-          <Tab eventKey={3} title="Tab 3" >Tab 3 content</Tab>
-        </Tabs>
-      </div>
-    );
-  }
-}
 
 // const ControlledTabs = React.createClass({
 //
