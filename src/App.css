@@ -2,7 +2,7 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  /*font-size: 6vw;*/
+  font-size: 2vw;
 }
 
 .App {
@@ -48,7 +48,7 @@
   width: 100%;
   padding: 1em;
 }
-.sidebar {
+.metric-sidebar {
   /*background-color: blue;*/
   padding: .25em;
   width: 20%;
@@ -56,16 +56,16 @@
 .graphs {
   width: 80%;
 }
-.checkbox {
+.metric-checkbox {
   padding: .5em;
   margin: .5em;
   background-color: skyblue;
   text-align: right;
 }
-.checkbox li {
+.metric-checkbox li {
   list-style: none;
   display: inline;
 }
-.checkbox input {
+.metric-checkbox input {
   margin-left: .5em;
 }

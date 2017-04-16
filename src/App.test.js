@@ -35,7 +35,5 @@ describe('App() ', () => {
     const actual = selectMetric('Tigers')
     const expected = tester.state.metricsSelected.testerApp
     expect(actual).toEqual(expected)
-
-    // const initState
   })
 })

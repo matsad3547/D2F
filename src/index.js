@@ -6,21 +6,13 @@ import Login from './components/Login'
 import Welcome from './components/Welcome'
 
 import App from './App'
-import { Main, Dicknuts } from './App'
+import { Main } from './App'
 
-import { BrowserRouter as Router, Route, IndexRoute } from 'react-router-dom'
-
-console.log('wtf!!!', Welcome);
-
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 ReactDOM.render(
   <Router>
-    <Route path='/' component={App} >
-      <IndexRoute component={Welcome} />
-
-    </Route>
-
-
+    <Route path='/' component={App} />
   </Router>
   , document.getElementById('root')
 )
