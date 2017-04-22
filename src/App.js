@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import './App.css'
-import rd3 from 'rd3'
 import Main from './components/Main'
 //
 // const LineChart = rd3.LineChart
@@ -33,6 +32,7 @@ class App extends Component {
       <div className="App">
         <div className="header">
           <h1>Welcome to D2F</h1>
+          <p>here's some TEXT to see how to calibrate your vh</p>
         </div>
         <Main
           selectMetric={this.selectMetric}

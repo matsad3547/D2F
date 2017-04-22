@@ -1,6 +1,7 @@
 import React from 'react'
 import MetricSelectionSidebar from './MetricSelectionSidebar'
 import Graphs from './Graphs'
+import Line from './Line'
 
 const Main = ({ selectMetric, metricsSelected }) => {
 
@@ -17,7 +18,7 @@ const Main = ({ selectMetric, metricsSelected }) => {
   return (
     <div className="main">
       <h2>How Are We Doing?</h2>
-      <Graphs />
+      <Line />
       <MetricSelectionSidebar
         selectMetric={selectMetric}
         metrics={metrics}
