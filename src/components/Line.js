@@ -83,3 +83,6 @@ function makeSeries () {
     r: Math.round(Math.random() * 5)
   }))
 }
+
+//TODO What this needs:
+//1. Legend - where's the legend?  D3? 

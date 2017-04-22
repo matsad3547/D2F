@@ -1,16 +1,16 @@
 import React from 'react'
 import rd3 from 'rd3'
-import * as stuff from 'react-charts'
+// import * as stuff from 'react-charts'
 // import Line from './LineChart'
 import _ from 'lodash'
 // import { Line } from './LineChart'
 // console.log('Line:', Line);
 
-console.log('react charts:', stuff ? stuff : 'nothing here');
+// console.log('react charts:', stuff ? stuff : 'nothing here');
 
-import { Line } from 'react-charts'
+// import { Line } from 'react-charts'
 
-console.log('line:', Line ? Line : 'nothing');
+// console.log('line:', Line ? Line : 'nothing');
 
 
 const LineChart = rd3.LineChart
