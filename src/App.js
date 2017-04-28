@@ -8,36 +8,55 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-        metricsSelected: []
+        metricsSelected: [],
+        data: {}
       }
     this.selectMetric=this.selectMetric.bind(this)
+  }
+
+  componentWillMount() {
+    console.log("I'm gonna mount")
+
+    fetch('https://api.github.com/gists/b20d0e6e7966fcfd732934b6bfea7ca2')
+    .then( res => res.json() )
+    .then( res => {
+      this.setState({
+        data: {
+          test: res.files['D2F-test'].content
+        }
+      })
+    })
   }
 
   selectMetric(metric){
     const metricsSelected = this.state.metricsSelected
     const index = metricsSelected.indexOf(metric)
     if (index !== -1) {
-      metricsSelected.splice(index, 1)
+      this.setState({
+        metricsSelected: [
+          ...this.state.metricsSelected.slice(0, index),
+          ...this.state.metricsSelected.slice(index + 1),
+        ]
+      })
     }
     else {
-      metricsSelected.push(metric)
+      this.setState({
+        metricsSelected: [...this.state.metricsSelected, metric]
+      })
     }
-    this.setState({
-      metricsSelected,
-    })
   }
 
   render() {
     return (
       <div className="App">
         <div className="header">
+          <p>Here's some data from an endpoint: {this.state.data.test}</p>
           <h1>Welcome to D2F</h1>
           <p>here's some TEXT to see how to calibrate your vh</p>
         </div>
         <Main
           selectMetric={this.selectMetric}
           metricsSelected={this.state.metricsSelected}/>
-
       </div>
     );
   }

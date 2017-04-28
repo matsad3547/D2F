@@ -1,12 +1,10 @@
 import React from 'react'
 import rd3 from 'rd3'
-// import * as stuff from 'react-charts'
 // import Line from './LineChart'
 import _ from 'lodash'
 // import { Line } from './LineChart'
 // console.log('Line:', Line);
 
-// console.log('react charts:', stuff ? stuff : 'nothing here');
 
 // import { Line } from 'react-charts'
 
