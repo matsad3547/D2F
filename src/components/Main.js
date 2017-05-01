@@ -6,7 +6,6 @@ import { metrics, getMetricsSelected } from '../utils/'
 
 const Main = ({ selectMetric, selectedData }) => {
 
-  // console.log('data:', selectedData);
   const metricsSelected = selectedData ?  getMetricsSelected(selectedData) : []
 
   return (

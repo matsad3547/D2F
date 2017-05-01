@@ -38,22 +38,15 @@ const EmailReportChart = ({ selectedData }) => {
       xStart - (0.0001 * xStart),
       xEnd + (0.0001 * xEnd),
     ]
-    const style = {
-      '.rd3-chart-title': {
-        padding: '.25em',
-      },
-      // title: {
-      // },
-    }
 
     const yAccessor = d => {
       return d.y
     }
 
     return (
-      <div className="chart" style={style}>
+      <div className="chart" >
         <LineChart
-          style={style.title}
+          
           circleRadius={3}
           colors={d3.scale.category10()}
           legend={false}

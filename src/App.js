@@ -30,7 +30,7 @@ class App extends Component {
   selectMetric(metric){
     const metricsSelected = this.state.metricsSelected
     const index = metricsSelected.indexOf(metric)
-    if (index !== -1) {
+    if (index !== -1 && metricsSelected.length > 1) {
       this.setState({
         metricsSelected: [
           ...this.state.metricsSelected.slice(0, index),
@@ -38,6 +38,8 @@ class App extends Component {
         ]
       })
     }
+    // if (metricsSelected.length >= 1) {
+    // }
     else {
       this.setState({
         metricsSelected: [...this.state.metricsSelected, metric]

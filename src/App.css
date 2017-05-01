@@ -80,13 +80,12 @@ svg {
 g.tick text {
   fill: white;
 }
-input[type='checkbox']:checked  {
+input.checked  {
   background: red;
   -webkit-appearance: none;
-  -moz-appearance: none;
+  -moz-appesarance: none;
   height: 14px;
   width: 14px;
-  /*border: solid 1px black;*/
   border-radius: 5px;
 }
 
