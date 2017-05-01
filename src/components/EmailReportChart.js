@@ -46,7 +46,7 @@ const EmailReportChart = ({ selectedData }) => {
     return (
       <div className="chart" >
         <LineChart
-          
+
           circleRadius={3}
           colors={d3.scale.category10()}
           legend={false}
