@@ -2,16 +2,30 @@ import React from 'react'
 
 const Checkbox = ({ metric, selectMetric, checked }) => {
 
+  const style = {
+    ul: {
+      textAlign: 'left'
+    },
+    input: {
+      marginRight: '.5em',
+      // input[type='checkbox']::checked{
+      //   background: 'red',
+      // },
+      // backgroundColor: 'red',
+    }
+  }
+
   return (
     <div className="metric-checkbox">
-      <ul>
-        <li>{metric}</li>
+      <ul style={style.ul}>
         <li><input
+          style={style.input}
           type="checkbox"
-          value={metric}
-          onChange={ () => selectMetric(metric) }
+          value={metric.value}
+          onChange={ () => selectMetric(metric.value) }
           checked={checked}
           ></input></li>
+        <li>{metric.label}</li>
       </ul>
     </div>
   )

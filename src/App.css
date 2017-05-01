@@ -63,15 +63,19 @@ svg {
   width: 80%;
 }
 .metric-checkbox {
+  width: auto;
   padding: .5em;
   margin: .5em;
   background-color: skyblue;
-  text-align: right;
+  /*text-align: right;*/
 }
 .metric-checkbox li {
   list-style: none;
   display: inline;
 }
-.metric-checkbox input {
+/*.metric-checkbox input {
   margin-left: .5em;
+}*/
+g.tick text {
+  fill: white;
 }

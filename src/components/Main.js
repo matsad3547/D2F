@@ -1,38 +1,40 @@
 import React from 'react'
 import MetricSelectionSidebar from './MetricSelectionSidebar'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
-import Graphs from './Graphs'
+import EmailReportChart from './EmailReportChart'
+import { metrics, getMetricsSelected } from '../utils/'
 
-const Main = ({ selectMetric, metricsSelected }) => {
+const Main = ({ selectMetric, selectedData }) => {
 
-  const metrics = [
-    'Opens',
-    'Deliveries',
-    'Clicks',
-    'Unsubscribes',
-    'Form Fills',
-    'Hard Bounces',
-    'Soft Bounces'
-  ]
+
+  console.log('data:', selectedData);
+  const metricsSelected = selectedData ?  getMetricsSelected(selectedData) : []
 
   return (
     <div className="main">
       <h2>How Are We Doing?</h2>
       <Tabs className="tabs">
         <TabList>
-          <Tab>Line Chart</Tab>
-          <Tab>Something Else</Tab>
-          <Tab>Some other Thing</Tab>
+          <Tab>Email Report</Tab>
+          <Tab>Campaign Comparisons</Tab>
+          <Tab>Lists and Contacts</Tab>
+          <Tab>Predictive</Tab>
         </TabList>
 
         <TabPanel>
-          <Graphs />
+          <EmailReportChart
+            selectedData={selectedData}
+            />
         </TabPanel>
         <TabPanel>
-          <p>Some other shit will go here</p>
+          <p>Campaign Comparisons will go here</p>
+
         </TabPanel>
         <TabPanel>
-          <p>And yet more stuff here</p>
+          <p>Lists and Contracts will go here</p>
+        </TabPanel>
+        <TabPanel>
+          <p>Predictive stuff will go here</p>
         </TabPanel>
       </Tabs>
       <MetricSelectionSidebar

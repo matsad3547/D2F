@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './App.css'
 import Main from './components/Main'
+import fetch from 'isomorphic-fetch'
 //
 // const LineChart = rd3.LineChart
 
@@ -8,24 +9,22 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-        metricsSelected: [],
-        data: {}
+        metricsSelected: ['opens'],
+        data: {},
       }
     this.selectMetric=this.selectMetric.bind(this)
   }
 
   componentWillMount() {
-    console.log("I'm gonna mount")
 
     fetch('https://api.github.com/gists/b20d0e6e7966fcfd732934b6bfea7ca2')
     .then( res => res.json() )
     .then( res => {
       this.setState({
-        data: {
-          test: res.files['D2F-test'].content
-        }
+        data: JSON.parse(res.files['D2F-test'].content)
       })
     })
+    .catch( err => console.error('There was an error:', err) )
   }
 
   selectMetric(metric){
@@ -46,17 +45,44 @@ class App extends Component {
     }
   }
 
+  getSelectedData() {
+    const data = this.state.data
+    if (data.timeseries !== undefined){
+      const metrics = this.state.metricsSelected
+      const selectedData = data.timeseries.map( obj => {
+        const selectedObj = {
+          timestamp: obj.timestamp,
+        }
+        metrics.forEach( met => {
+          Object.assign( selectedObj, {[met]: obj[met]})
+        })
+        return selectedObj
+      })
+      return selectedData
+    }
+  }
+
   render() {
+
+    try {
+      // console.log('selected data:', this.getSelectedData())
+    }
+    catch (ex){
+      console.error(ex)
+    }
+
+    // console.log('data:', this.state.data);
     return (
       <div className="App">
         <div className="header">
-          <p>Here's some data from an endpoint: {this.state.data.test}</p>
+
           <h1>Welcome to D2F</h1>
           <p>here's some TEXT to see how to calibrate your vh</p>
         </div>
         <Main
           selectMetric={this.selectMetric}
-          metricsSelected={this.state.metricsSelected}/>
+          selectedData={this.getSelectedData()}
+          />
       </div>
     );
   }
@@ -64,19 +90,19 @@ class App extends Component {
 
 export default App
 
-const months = [
-  'January',
-  'February',
-  'March',
-  'April',
-  'May',
-  'June',
-  'July',
-  'August',
-  'September',
-  'October',
-  'November',
-  'December',
-]
+// const months = [
+//   'January',
+//   'February',
+//   'March',
+//   'April',
+//   'May',
+//   'June',
+//   'July',
+//   'August',
+//   'September',
+//   'October',
+//   'November',
+//   'December',
+// ]
 
-const getRandoData = () => new Array(12).fill().map( n => Math.random().toFixed(3) * 1000 )
+// const getRandoData = () => new Array(12).fill().map( n => Math.random().toFixed(3) * 1000 )
