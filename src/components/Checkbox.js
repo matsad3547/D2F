@@ -8,11 +8,13 @@ const Checkbox = ({ metric, selectMetric, checked }) => {
     },
     input: {
       marginRight: '.5em',
-      // input[type='checkbox']::checked{
-      //   background: 'red',
-      // },
-      // backgroundColor: 'red',
+    },
+    'input[type="checkbox"]:checked': {
+      backgroundColor: 'red',
+    // },
+    // backgroundColor: 'red',
     }
+    
   }
 
   return (

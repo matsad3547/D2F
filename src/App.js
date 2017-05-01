@@ -50,7 +50,7 @@ class App extends Component {
     if (data.timeseries !== undefined){
       const metrics = this.state.metricsSelected
       const selectedData = data.timeseries.map( obj => {
-        const selectedObj = {
+        let selectedObj = {
           timestamp: obj.timestamp,
         }
         metrics.forEach( met => {
@@ -104,5 +104,3 @@ export default App
 //   'November',
 //   'December',
 // ]
-
-// const getRandoData = () => new Array(12).fill().map( n => Math.random().toFixed(3) * 1000 )
