@@ -7,8 +7,8 @@
 
 svg {
   /*background-color: darkslategray;*/
-  background-image:
-  linear-gradient( 45deg, blue, red);
+  /*background-image:*/
+  /*linear-gradient( 45deg, blue, red);*/
 }
 
 .App {
@@ -66,8 +66,10 @@ svg {
 .metric-checkbox {
   width: auto;
   padding: .5em;
-  margin: .5em;
-  background-color: skyblue;
+  margin: .25em;
+  border: 1px solid lightgray;
+  box-shadow: 3px 3px 3px black;
+  /*background-color: skyblue;*/
   /*text-align: right;*/
 }
 .metric-checkbox li {
@@ -80,15 +82,18 @@ svg {
 g.tick text {
   fill: white;
 }
-input.checked  {
+/*input.checked  {
   background: red;
   -webkit-appearance: none;
   -moz-appesarance: none;
   height: 14px;
   width: 14px;
   border-radius: 5px;
-}
+}*/
 
 .rd3-chart-title {
   padding: .25em;
+}
+.ReactTabs__Tab--selected {
+  color: red;
 }

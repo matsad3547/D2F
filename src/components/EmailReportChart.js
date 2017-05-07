@@ -12,7 +12,7 @@ const LineChart = rd3.LineChart
 const getDisplayData = selectedData => {
   const selectedMetrics = getMetricsSelected(selectedData)
   const data = selectedMetrics.map( met => {
-    let series = {
+    const series = {
       name: metrics.find( metric => metric.value === met).label,
       values: selectedData.map( d => {
         return {
@@ -59,7 +59,6 @@ const EmailReportChart = ({ selectedData }) => {
             width: 500,
             height: 400,
           }}
-
           title="Metric Trend"
           xAxisLabel="Months"
           xAccessor={ d => {
@@ -69,7 +68,7 @@ const EmailReportChart = ({ selectedData }) => {
         xAxisTickInterval={{unit: 'months', interval: 2}}
         yAxisLabel="Metrics"
         yAccessor={ yAccessor }
-        domain={{x: xDomain, y: [0]}}
+        domain={{x: xDomain, y: [0, 300]}}
         gridHorizontal={true}
         />
       </div>

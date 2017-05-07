@@ -5,8 +5,9 @@ import d3 from 'd3'
 
 const MetricSelectionSidebar = ({ selectMetric, metricsSelected }) => {
 
-  const scale = d3.scale.category10()
-  const colors = scale.range()
+  const colors = d3.scale
+                  .category10()
+                  .range()
 
   console.log('colors:', colors);
 

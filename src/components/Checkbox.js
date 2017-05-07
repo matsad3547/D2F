@@ -11,6 +11,7 @@ const Checkbox = ({ metric, selectMetric, checked, color }) => {
     },
     inputChecked: {
       marginRight: '.5em',
+      // marginTop: '.4em',
       background: color,
       WebkitAppearance: 'none',
       MozAppearance: 'none',

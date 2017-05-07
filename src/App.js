@@ -38,8 +38,6 @@ class App extends Component {
         ]
       })
     }
-    // if (metricsSelected.length >= 1) {
-    // }
     else {
       this.setState({
         metricsSelected: [...this.state.metricsSelected, metric]
@@ -60,6 +58,7 @@ class App extends Component {
         })
         return selectedObj
       })
+      console.log('selected data at app:', selectedData);
       return selectedData
     }
   }
