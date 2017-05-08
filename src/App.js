@@ -11,6 +11,8 @@ class App extends Component {
     this.state = {
         metricsSelected: ['opens'],
         data: {},
+        user: 'Newbie Matt',
+        userCompany: 'D2F',
       }
     this.selectMetric=this.selectMetric.bind(this)
   }
@@ -83,6 +85,8 @@ class App extends Component {
         <Main
           selectMetric={this.selectMetric}
           selectedData={this.getSelectedData()}
+          user={this.state.user}
+          userCompany={this.state.userCompany}
           />
       </div>
     );

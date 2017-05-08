@@ -19,7 +19,8 @@
     "react-resizable": "^1.6.0",
     "react-router": "^4.0.0",
     "react-router-dom": "^4.0.0",
-    "react-tabs": "^0.8.3"
+    "react-tabs": "^0.8.3",
+    "simple-line-icons": "^2.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
