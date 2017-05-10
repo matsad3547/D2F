@@ -58,6 +58,12 @@ export const metrics = [
     bar: barColors[1],
     trend: trendColors[1],
   },
+  // {
+  //   label: 'Form Fills',
+  //   value: 'form_fills',
+  //   bar: barColors[4],
+  //   trend: trendColors[4],
+  // },
   {
     label: 'Clicks',
     value: 'clicks',
@@ -65,28 +71,22 @@ export const metrics = [
     trend: trendColors[2],
   },
   {
-    label: 'Unsubscribes',
-    value: 'unsubscribes',
+    label: 'Hard Bounces',
+    value: 'hard_bounces',
     bar: barColors[3],
     trend: trendColors[3],
   },
   {
-    label: 'Form Fills',
-    value: 'form_fills',
+    label: 'Soft Bounces',
+    value: 'soft_bounces',
     bar: barColors[4],
     trend: trendColors[4],
   },
   {
-    label: 'Hard Bounces',
-    value: 'hard_bounces',
+    label: 'Unsubscribes',
+    value: 'unsubscribes',
     bar: barColors[5],
     trend: trendColors[5],
-  },
-  {
-    label: 'Soft Bounces',
-    value: 'soft_bounces',
-    bar: barColors[6],
-    trend: trendColors[6],
   },
 ]
 

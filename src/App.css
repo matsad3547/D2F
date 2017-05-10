@@ -86,19 +86,13 @@ svg {
   width: 80%;
 }
 .metric-sidebar {
-  /*margin-top: 2.25em;*/
-  /*padding: .25em;*/
   width: 20%;
 }
 
 .metric-checkbox {
+  font-size: .4em;
   width: auto;
   padding: .5em;
-  /*margin: .25em;*/
-  /*border: 1px solid lightgray;*/
-  /*box-shadow: 3px 3px 3px black;*/
-  /*background-color: skyblue;*/
-  /*text-align: right;*/
 }
 .metric-checkbox li {
   list-style: none;

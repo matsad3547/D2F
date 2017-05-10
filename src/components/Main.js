@@ -2,7 +2,7 @@ import React from 'react'
 import MetricSelectionSidebar from './MetricSelectionSidebar'
 import SectionSidebar from './SectionSidebar'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
-import EmailReportChart from './EmailReportChart'
+import EmailReportChartRecharts from './EmailReportChartRecharts'
 import { metrics, getMetricsSelected } from '../utils/'
 
 const Main = ({ selectMetric,
@@ -27,7 +27,7 @@ const Main = ({ selectMetric,
         </TabList>
 
         <TabPanel>
-          <EmailReportChart
+          <EmailReportChartRecharts
             selectedData={selectedData}
             />
           <MetricSelectionSidebar

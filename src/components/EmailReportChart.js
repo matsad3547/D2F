@@ -76,7 +76,7 @@ const EmailReportChart = ({ selectedData }) => {
   }
   else {
     return (
-      <div>
+      <div className="chart">
         <p>Data is loading</p>
       </div>
     )

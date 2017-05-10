@@ -11,8 +11,7 @@ const Checkbox = ({ metric, selectMetric, checked, color }) => {
     },
     inputChecked: {
       marginRight: '.5em',
-      // marginTop: '.4em',
-      background: color,
+      background: metric.bar,
       WebkitAppearance: 'none',
       MozAppearance: 'none',
       height: 14,
@@ -27,7 +26,6 @@ const Checkbox = ({ metric, selectMetric, checked, color }) => {
       <ul style={style.ul}>
         <li><input
           style={ checked ? style.inputChecked : style.input}
-
           type="checkbox"
           value={metric.value}
           onChange={ () => selectMetric(metric.value) }
