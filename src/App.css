@@ -1,50 +1,31 @@
-@simple-line-font-path: "../node_modules/simple-line-icons/fonts";
-@simple-line-font-family: "desired-name-font-family";
-@simple-line-icon-prefix: prefix-;
-
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-size: 2vw;
+  font-size: 1.25vw;
+}
+
+h1 {
+  font-size: 2.488em;
+}
+h2 {
+  font-size: 2.074em;
+  font-weight: 200;
+}
+h3 {
+  font-size: 1.728em;
+}
+h4 {
+  font-size: 1.44em;
+}
+h5 {
+  font-size: 1.2em;
 }
 
 svg {
   /*background-color: darkslategray;*/
   /*background-image:*/
   /*linear-gradient( 45deg, blue, red);*/
-}
-
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.header {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  background-color: #222;
-  min-height: 50px;
-  padding: 20px;
-  color: white;
-}
-
-.header h1 {
-
-}
-
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
 }
 
 .main {
@@ -54,27 +35,59 @@ svg {
   flex-wrap: wrap;
 }
 
-.main h2 {
-  width: 100%;
-  padding: 1em;
-}
 .section-sidebar {
-  width: 20%;
-  height: 100vh;
+  width: 17%;
+  min-height: 94vh;
   color: white;
-}
-.company-header {
-  background-color: #351c29;
-}
-.sections {
   background-image:
   linear-gradient( #6a273a, #351c29);
+  /*flex: 1 1 auto;*/
+}
+.company-header {
+  padding: 1em;
+  background-color: #351c29;
+  text-align: left;
 }
 .user-header {
-  font-size: 2em;
+  display: inline-flex;
+  padding: 1em
 }
+.user-header > span {
+  font-size: 2em;
+  padding: .3em;
+}
+.sections {
+  /*display: flex;*/
+  /*flex-direction: column;*/
+  /*justify-content: space-between;*/
+}
+li.section {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em .5em;
+  font-weight: 200;
+  cursor: pointer;
+}
+.sb-button {
+  border-top: 1.25px solid #351c29;
+  border-bottom: 1.25px solid #6a273a;
+}
+li.section:active {
+  background-image:
+  linear-gradient( #6a273a, #873D48);
+  background-size: cover;
+}
+.sign-out {
+  margin-top: 100%;
+}
+
 .ReactTabs {
-  width: 80%;
+  width: 83%;
+}
+.ReactTabs__TabList {
+  background-color: #a8a2aa;
+  text-align: left;
+  padding: .5em 1em 0 1em !important;
 }
 .ReactTabs__TabPanel {
   width: 100%;
@@ -82,13 +95,19 @@ svg {
   display: flex;
   flex-direction: row;
 }
+.ReactTabs__Tab {
+  padding: 1em !important;
+}
+.ReactTabs__Tab > span {
+  font-size: 1.5em;
+  margin-right: .5em;
+}
 .chart {
   width: 80%;
 }
 .metric-sidebar {
   width: 20%;
 }
-
 .metric-checkbox {
   font-size: .4em;
   width: auto;
@@ -98,12 +117,7 @@ svg {
   list-style: none;
   display: inline;
 }
-/*.metric-checkbox input {
-  margin-left: .5em;
-}*/
-g.tick text {
-  fill: white;
-}
+
 /*input.checked  {
   background: red;
   -webkit-appearance: none;
@@ -118,4 +132,13 @@ g.tick text {
 }
 .ReactTabs__Tab--selected {
   color: red;
+}
+.footer {
+  /*position: static;*/
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+  height: 4vh;
+  background-color: #a8a2aa;
+  padding: 2em;
 }

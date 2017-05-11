@@ -20,7 +20,7 @@ const Main = ({ selectMetric,
         />
       <Tabs className="tabs">
         <TabList>
-          <Tab>Email Report</Tab>
+          <Tab><span className="icon-envelope"></span>Email Report</Tab>
           <Tab>Campaign Comparisons</Tab>
           <Tab>Lists and Contacts</Tab>
           <Tab>Predictive</Tab>

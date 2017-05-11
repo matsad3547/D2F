@@ -11,7 +11,7 @@ class App extends Component {
     this.state = {
         metricsSelected: ['opens'],
         data: {},
-        user: 'Newbie Matt',
+        user: 'Noobie Matt',
         userCompany: 'D2F',
       }
     this.selectMetric=this.selectMetric.bind(this)
@@ -77,17 +77,16 @@ class App extends Component {
     // console.log('data:', this.state.data);
     return (
       <div className="App">
-        <div className="header">
-
-          <h1>Welcome to D2F</h1>
-          <p>here's some TEXT to see how to calibrate your vh</p>
-        </div>
         <Main
           selectMetric={this.selectMetric}
           selectedData={this.getSelectedData()}
           user={this.state.user}
           userCompany={this.state.userCompany}
           />
+        <div className="footer">
+          <p>Boogie Charts Inc
+          Salt Lake City, Utah</p>
+        </div>
       </div>
     );
   }
