@@ -50,13 +50,11 @@ export const metrics = [
     label: 'Opens',
     value: 'opens',
     bar: barColors[0],
-    trend: trendColors[0],
   },
   {
     label: 'Deliveries',
     value: 'deliveries',
     bar: barColors[1],
-    trend: trendColors[1],
   },
   // {
   //   label: 'Form Fills',
@@ -68,26 +66,78 @@ export const metrics = [
     label: 'Clicks',
     value: 'clicks',
     bar: barColors[2],
-    trend: trendColors[2],
   },
   {
     label: 'Hard Bounces',
     value: 'hard_bounces',
     bar: barColors[3],
-    trend: trendColors[3],
   },
   {
     label: 'Soft Bounces',
     value: 'soft_bounces',
     bar: barColors[4],
-    trend: trendColors[4],
   },
   {
     label: 'Unsubscribes',
     value: 'unsubscribes',
     bar: barColors[5],
+  },
+]
+
+export const rates = [
+  {
+    label: 'Delivery Rate',
+    value: 'delivery_rate',
+    trend: trendColors[0],
+  },
+  {
+    label: 'Open Rate',
+    value: 'open_rate',
+    trend: trendColors[1],
+  },
+  {
+    label: 'CTOR',
+    value: 'click_to_open_rate',
+    trend: trendColors[2],
+  },
+  {
+    label: 'CTR',
+    value: 'click_through_rate',
+    trend: trendColors[3],
+  },
+  {
+    label: 'Bounce Rate',
+    value: 'bounce_rate',
+    trend: trendColors[4],
+  },
+  {
+    label: 'Unsubscribe Rate',
+    value: 'unsubscribe_rate',
     trend: trendColors[5],
   },
 ]
 
 export const getMetricsSelected = selectedData =>  Object.keys(selectedData[0]).filter( k => k !== 'timestamp')
+
+export const timeGroups = [
+  {
+    label: 'Day',
+    value: 'day',
+  },
+  {
+    label: 'Week',
+    value: 'week',
+  },
+  {
+    label: 'Month',
+    value: 'month',
+  },
+  {
+    label: 'Quarter',
+    value: 'quarter',
+  },
+  {
+    label: 'Year',
+    value: 'year',
+  },
+]

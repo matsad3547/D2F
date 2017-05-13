@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Checkbox = ({ metric, selectMetric, checked, color }) => {
+const Checkbox = ({ value, selectValue, checked, color }) => {
 
   const style = {
     ul: {
@@ -11,27 +11,26 @@ const Checkbox = ({ metric, selectMetric, checked, color }) => {
     },
     inputChecked: {
       marginRight: '.5em',
-      background: metric.bar,
+      background: color,
       WebkitAppearance: 'none',
       MozAppearance: 'none',
       height: 14,
       width: 14,
       borderRadius: 5,
     },
-
   }
 
   return (
-    <div className="metric-checkbox">
+    <div className="value-checkbox">
       <ul style={style.ul}>
         <li><input
           style={ checked ? style.inputChecked : style.input}
           type="checkbox"
-          value={metric.value}
-          onChange={ () => selectMetric(metric.value) }
+          value={value.value}
+          onChange={ () => selectValue(value.value) }
           checked={checked}
           ></input></li>
-        <li>{metric.label}</li>
+        <li>{value.label}</li>
       </ul>
     </div>
   )

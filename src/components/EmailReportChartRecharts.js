@@ -10,9 +10,12 @@ const data = [{name: 'Page A', uv: 590, pv: 800, amt: 1400},
               {name: 'Page F', uv: 1400, pv: 680, amt: 1700}];
 
 const EmailReportChartRecharts = ({ selectedData }) => {
+
   	return (
-    	<ComposedChart width={600} height={400} data={data}
-            margin={{top: 20, right: 20, bottom: 20, left: 20}}>
+      <div>
+        <h4>Performance Trend</h4>
+        <ComposedChart className="chart" width={400} height={400} data={data}
+          margin={{top: 20, right: 20, bottom: 20, left: 20}}>
           <XAxis dataKey="name"/>
           <YAxis />
           <Tooltip/>
@@ -21,8 +24,9 @@ const EmailReportChartRecharts = ({ selectedData }) => {
           <Area type='monotone' dataKey='amt' fill='#8884d8' stroke='#8884d8'/>
           <Bar dataKey='pv' barSize={20} fill='#413ea0'/>
           <Line type='monotone' dataKey='uv' stroke='#ff7300'/>
-       </ComposedChart>
-    );
+        </ComposedChart>
+      </div>
+    )
   }
 
 

@@ -36,7 +36,7 @@ svg {
 }
 
 .section-sidebar {
-  width: 17%;
+  width: 20%;
   min-height: 94vh;
   color: white;
   background-image:
@@ -64,7 +64,7 @@ svg {
 li.section {
   display: flex;
   justify-content: space-between;
-  padding: 1em .5em;
+  padding: 1em 1.5em;
   font-weight: 200;
   cursor: pointer;
 }
@@ -82,38 +82,70 @@ li.section:active {
 }
 
 .ReactTabs {
-  width: 83%;
+  width: 80%;
+  background-color: #f7f7f7;
 }
 .ReactTabs__TabList {
   background-color: #a8a2aa;
   text-align: left;
-  padding: .5em 1em 0 1em !important;
+  margin: 0 !important;
 }
 .ReactTabs__TabPanel {
+  background-color: #f7f7f7;
+  padding: 1em 1.5em !important;
   width: 100%;
+  height: 3em;
   margin: 0;
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 .ReactTabs__Tab {
   padding: 1em !important;
+}
+.ReactTabs__Tab--selected {
+  background-color: #f7f7f7 !important;
 }
 .ReactTabs__Tab > span {
   font-size: 1.5em;
   margin-right: .5em;
 }
-.chart {
-  width: 80%;
+.block {
+  background-color: white;
+  border: 1px solid #DBDBDB;
+  border-radius: 5px;
 }
-.metric-sidebar {
+.interactive-chart {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+.chart {
+  width: 60%;
+}
+.metric-select, .rate-select {
   width: 20%;
 }
-.metric-checkbox {
+.time-group {
+  display: inline-flex;
+  width: 100%;
+  padding-bottom: 1em;
+}
+.time-group > p {
+  padding: 0 1em 0 0;
+}
+.time-group > input {
+  margin: 0 .25em;
+  padding: .25em 1.5em;
+  border-radius: .5em;
+  border: none;
+}
+.value-checkbox {
   font-size: .4em;
   width: auto;
   padding: .5em;
 }
-.metric-checkbox li {
+.value-checkbox li {
   list-style: none;
   display: inline;
 }
@@ -129,9 +161,6 @@ li.section:active {
 
 .rd3-chart-title {
   padding: .25em;
-}
-.ReactTabs__Tab--selected {
-  color: red;
 }
 .footer {
   /*position: static;*/

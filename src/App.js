@@ -9,12 +9,16 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-        metricsSelected: ['opens'],
         data: {},
+        metricsSelected: ['opens'],
+        ratesSelected: ['opens'],
+        timeGroup: 'month',
         user: 'Noobie Matt',
         userCompany: 'D2F',
       }
-    this.selectMetric=this.selectMetric.bind(this)
+    this.selectMetric = this.selectMetric.bind(this)
+    this.selectRate = this.selectRate.bind(this)
+    this.setTimeGroup = this.setTimeGroup.bind(this)
   }
 
   componentWillMount() {
@@ -45,6 +49,29 @@ class App extends Component {
         metricsSelected: [...this.state.metricsSelected, metric]
       })
     }
+  }
+  selectRate(rate){
+    const ratesSelected = this.state.ratesSelected
+    const index = ratesSelected.indexOf(rate)
+    if (index !== -1 && ratesSelected.length > 1) {
+      this.setState({
+        ratesSelected: [
+          ...this.state.ratesSelected.slice(0, index),
+          ...this.state.ratesSelected.slice(index + 1),
+        ]
+      })
+    }
+    else {
+      this.setState({
+        ratesSelected: [...this.state.ratesSelected, rate]
+      })
+    }
+  }
+
+  setTimeGroup(timeGroup) {
+    this.setState({
+      timeGroup,
+    })
   }
 
   getSelectedData() {
@@ -79,6 +106,10 @@ class App extends Component {
       <div className="App">
         <Main
           selectMetric={this.selectMetric}
+          selectRate={this.selectRate}
+          setTimeGroup={this.setTimeGroup}
+          timeGroupSelected={this.state.timeGroup}
+          ratesSelected={this.state.ratesSelected}
           selectedData={this.getSelectedData()}
           user={this.state.user}
           userCompany={this.state.userCompany}

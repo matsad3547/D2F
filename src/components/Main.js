@@ -1,14 +1,22 @@
 import React from 'react'
-import MetricSelectionSidebar from './MetricSelectionSidebar'
+import MetricSelection from './MetricSelection'
+import RateSelection from './RateSelection'
 import SectionSidebar from './SectionSidebar'
+import TimeGroupingBar from './TimeGroupingBar'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 import EmailReportChartRecharts from './EmailReportChartRecharts'
-import { metrics, getMetricsSelected } from '../utils/'
+import { getMetricsSelected } from '../utils/'
 
-const Main = ({ selectMetric,
-                selectedData,
-                user,
-                userCompany }) => {
+const Main = ({
+    selectMetric,
+    selectRate,
+    setTimeGroup,
+    timeGroupSelected,
+    ratesSelected,
+    selectedData,
+    user,
+    userCompany,
+  }) => {
 
   const metricsSelected = selectedData ?  getMetricsSelected(selectedData) : []
 
@@ -27,14 +35,22 @@ const Main = ({ selectMetric,
         </TabList>
 
         <TabPanel>
-          <EmailReportChartRecharts
-            selectedData={selectedData}
-            />
-          <MetricSelectionSidebar
-            selectMetric={selectMetric}
-            metrics={metrics}
-            metricsSelected={metricsSelected}
-            />
+          <TimeGroupingBar
+            setTimeGroup={setTimeGroup}
+            timeGroupSelected={timeGroupSelected}/>
+          <div className="interactive-chart block">
+            <EmailReportChartRecharts
+              selectedData={selectedData}
+              />
+            <MetricSelection
+              selectMetric={selectMetric}
+              metricsSelected={metricsSelected}
+              />
+            <RateSelection
+              selectRate={selectRate}
+              ratesSelected={ratesSelected}
+              />
+          </div>
 
         </TabPanel>
         <TabPanel>
