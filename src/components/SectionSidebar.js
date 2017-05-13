@@ -1,8 +1,5 @@
 import React from 'react'
 import { sections } from '../utils/'
-// import * as icon from 'simple-line-icons'
-
-// console.log('icons:', icon);
 
 const SectionSidebar = ({user, userCompany}) => (
   <div className="section-sidebar">
@@ -11,7 +8,7 @@ const SectionSidebar = ({user, userCompany}) => (
       <span className="icon-user"></span>
       <div>
         <h4>{user || 'User Name Goes Here'}</h4>
-        <p>{userCompany || 'Company Inc.' }</p>        
+        <p>{userCompany || 'Company Inc.' }</p>
       </div>
     </div>
     <div className="sections">

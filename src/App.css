@@ -120,6 +120,9 @@ li.section:active {
   flex-direction: row;
   width: 100%;
 }
+.interactive-chart > h4 {
+  padding: 1em 0 .5em 0;
+}
 .chart {
   width: 60%;
 }

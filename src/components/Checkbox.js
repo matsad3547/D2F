@@ -8,6 +8,12 @@ const Checkbox = ({ value, selectValue, checked, color }) => {
     },
     input: {
       marginRight: '.5em',
+      background: '#DBDBDB',
+      WebkitAppearance: 'none',
+      MozAppearance: 'none',
+      height: 14,
+      width: 14,
+      borderRadius: 5,
     },
     inputChecked: {
       marginRight: '.5em',

@@ -5,7 +5,6 @@ import { rates } from '../utils/'
 const RateSelection = ({ selectRate, ratesSelected }) => {
 
   return (
-
     <div className="rate-select">
       <h4>Rates</h4>
       { rates.map( (rate, i) => <Checkbox

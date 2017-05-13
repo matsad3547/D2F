@@ -5,7 +5,6 @@ import { metrics } from '../utils/'
 const MetricSelection = ({ selectMetric, metricsSelected }) => {
 
   return (
-
     <div className="metric-select">
       <h4>Metrics</h4>
       { metrics.map( (metric, i) => <Checkbox

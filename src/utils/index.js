@@ -19,26 +19,26 @@ export const trendColors = [
 ]
 
 export const sections = [
-  {
-    label: 'Social Report',
-    span: 'icon-like',
-  },
+  // {
+  //   label: 'Social Report',
+  //   span: 'icon-like',
+  // },
   {
     label: 'Email Report',
     span: 'icon-envelope',
   },
-  {
-    label: 'Multi-Channel Report',
-    span: 'icon-chart',
-  },
-  {
-    label: 'Campaign Mapper',
-    span: 'icon-pencil',
-  },
-  {
-    label: 'Saved Reports',
-    span: 'icon-folder-alt',
-  },
+  // {
+  //   label: 'Multi-Channel Report',
+  //   span: 'icon-chart',
+  // },
+  // {
+  //   label: 'Campaign Mapper',
+  //   span: 'icon-pencil',
+  // },
+  // {
+  //   label: 'Saved Reports',
+  //   span: 'icon-folder-alt',
+  // },
   {
     label: 'Account Settings',
     span: 'icon-settings',
