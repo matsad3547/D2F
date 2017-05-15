@@ -10,15 +10,17 @@ const makeData = () => {
   const getRandoNum = () => Math.round(Math.random() * (max) + Math.round(Math.random() * 50))
 
   return arr.map( (d, i) => {
+    const num = getRandoNum()
     return {
       'timestamp': new Date(new Date().setHours(oneYearAgo.getHours() + (24 * i))),
-      'opens': getRandoNum(),
-      'deliveries': getRandoNum(),
-      'clicks': getRandoNum(),
-      'unsubscribes': getRandoNum(),
-      'form_fills': getRandoNum(),
-      'hard_bounces': getRandoNum(),
-      'soft_bounces': getRandoNum(),
+      'emails_sent': num,
+      'deliveries': Math.round(num * .9),
+      'opens': Math.round(num * .75),
+      'clicks': Math.round(num * .5),
+      'form_fills': Math.round(num * .4),
+      'unsubscribes': Math.round(num * .2),
+      'hard_bounces': Math.round(num * .03),
+      'soft_bounces': Math.round(num * .07),
     }
   })
 }

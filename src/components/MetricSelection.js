@@ -11,7 +11,7 @@ const MetricSelection = ({ selectMetric, metricsSelected }) => {
         selectValue={selectMetric}
         key={`metric-${i}`}
         value={metric}
-        color={metric.bar}
+        color={metric.color}
         checked={metricsSelected.includes(metric.value)}/> )}
     </div>
   )

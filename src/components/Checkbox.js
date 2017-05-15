@@ -14,6 +14,7 @@ const Checkbox = ({ value, selectValue, checked, color }) => {
       height: 14,
       width: 14,
       borderRadius: 5,
+      boxShadow: '1px 1px 1px gray',
     },
     inputChecked: {
       marginRight: '.5em',
@@ -23,6 +24,7 @@ const Checkbox = ({ value, selectValue, checked, color }) => {
       height: 14,
       width: 14,
       borderRadius: 5,
+      boxShadow: '1px 1px 1px gray',
     },
   }
 

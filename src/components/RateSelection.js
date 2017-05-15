@@ -11,7 +11,7 @@ const RateSelection = ({ selectRate, ratesSelected }) => {
         selectValue={selectRate}
         key={`rate-${i}`}
         value={rate}
-        color={rate.trend}
+        color={rate.color}
         checked={ratesSelected.includes(rate.value)}/> )}
     </div>
   )

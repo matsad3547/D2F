@@ -18,7 +18,6 @@ const SectionSidebar = ({user, userCompany}) => (
       <ul className="sign-out">
         <li className="section"><span className="icon-logout"></span>Sign Out<span></span></li>
       </ul>
-
     </div>
   </div>
 )

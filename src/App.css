@@ -21,21 +21,15 @@ h4 {
 h5 {
   font-size: 1.2em;
 }
-
-svg {
-  /*background-color: darkslategray;*/
-  /*background-image:*/
-  /*linear-gradient( 45deg, blue, red);*/
-}
-
 .main {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   flex-wrap: wrap;
 }
-
 .section-sidebar {
+  display: flex;
+  flex-direction: column;
   width: 20%;
   min-height: 94vh;
   color: white;
@@ -57,9 +51,10 @@ svg {
   padding: .3em;
 }
 .sections {
-  /*display: flex;*/
-  /*flex-direction: column;*/
-  /*justify-content: space-between;*/
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 li.section {
   display: flex;
@@ -76,9 +71,6 @@ li.section:active {
   background-image:
   linear-gradient( #6a273a, #873D48);
   background-size: cover;
-}
-.sign-out {
-  margin-top: 100%;
 }
 
 .ReactTabs {
@@ -115,19 +107,22 @@ li.section:active {
   border: 1px solid #DBDBDB;
   border-radius: 5px;
 }
+.report {
+  width: 100%;
+}
 .interactive-chart {
   display: flex;
   flex-direction: row;
   width: 100%;
 }
-.interactive-chart > h4 {
+.interactive-chart h4 {
   padding: 1em 0 .5em 0;
 }
-.chart {
-  width: 60%;
+.chart > h4 {
+  padding-left: 1em;
 }
 .metric-select, .rate-select {
-  width: 20%;
+  width: 17%;
 }
 .time-group {
   display: inline-flex;
