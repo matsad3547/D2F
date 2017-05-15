@@ -253,16 +253,3 @@ export const aggregateByTime = (selectedData, time) => {
   })
   return aggregatedData
 }
-
-// export const aggregateByTime = (selectedData, time) => {
-//   switch (time) {
-//     case 'day':
-//       return selectedData
-//     case 'month':
-//
-//       return aggregateByMonth(selectedData)
-//     default:
-//     console.log('this is selected data:', selectedData);
-//       return selectedData
-//   }
-// }
