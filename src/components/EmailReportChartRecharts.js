@@ -23,7 +23,7 @@ const EmailReportChartRecharts = ({ selectedData, metricsSelected, ratesSelected
           { metricsSelected.map( (metricSelected, i) => <Bar
             key={`metric-${i}`}
             dataKey={metricSelected}
-            barSize={(width - 60)/metricsSelected.length} fill={metrics.find( obj => obj.value === metricSelected ).color}
+            barSize={(width - 60)/selectedData.length} fill={metrics.find( obj => obj.value === metricSelected ).color}
             />)}
         </ComposedChart>
       </div>

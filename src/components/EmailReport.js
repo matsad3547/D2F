@@ -81,9 +81,11 @@ export default class EmailReport extends Component {
     if (data.timeseries !== undefined){
       const metrics = this.state.metricsSelected
       const rates = this.state.ratesSelected
+      // console.log('data:', data);
       let selectedData = data.timeseries.map( obj => {
         let selectedObj = {
           timestamp: obj.timestamp,
+          // emails_sent: obj.emails_sent,
         }
         metrics.forEach( met => {
           Object.assign( selectedObj, {[met]: obj[met]})
@@ -96,7 +98,7 @@ export default class EmailReport extends Component {
       })
       const time = this.state.timeGroup
       selectedData = aggregateByTime(selectedData, time)
-      // console.log('selected data at app:', selectedData);
+      console.log('selected data at app:', selectedData);
       return selectedData
     }
   }
