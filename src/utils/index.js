@@ -194,7 +194,7 @@ export const calcRateVal = (data, rate) => {
   const rateObj = rates.find( obj => obj.value === rate)
   const params = rateObj.params.map( param => data[param])
   return {
-    [rateObj.label]: rateObj.eq(...params),
+    [rateObj.value]: Math.round(rateObj.eq(...params) * 1000)/1000,
   }
 }
 
@@ -220,7 +220,6 @@ const getTimeInterval = time => {
     case 'month':
       return months
     default:
-
   }
 }
 

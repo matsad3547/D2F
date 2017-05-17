@@ -120,6 +120,11 @@ li.section:active {
 .chart > h4 {
   padding-left: 1em;
 }
+.tooltip {
+  background-color: white;
+  border: 1px solid #a8a2aa;
+  border-radius: 5px;
+}
 .metric-select, .rate-select {
   width: 17%;
 }
