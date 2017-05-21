@@ -10,6 +10,7 @@ import {
 import MetricSelection from './MetricSelection'
 import RateSelection from './RateSelection'
 import TimeGroupingBar from './TimeGroupingBar'
+import SlicersAndDicers from './SlicersAndDicers'
 import EmailReportChartRecharts from './EmailReportChartRecharts'
 
 export default class EmailReport extends Component {
@@ -21,6 +22,16 @@ export default class EmailReport extends Component {
         metricsSelected: ['opens'],
         ratesSelected: ['delivery_rate'],
         timeGroup: 'month',
+        slices: {
+          accounts: ['Account A', 'Account B', 'Account C'],
+          lists: ['List A', 'List B'],
+          segments: ['Segment A', 'Segment B'],
+          interestCategories: ['Interest A', 'Interest B'],
+          locations: ['Utah', 'California', 'Oregon'],
+          members: ['Dick Hertz', 'Bobby Pin'],
+          campaignsOrEmails: ['Newsletter A', 'Promo B'],
+        },
+        slicesSelected: {},
       }
     this.selectMetric = this.selectMetric.bind(this)
     this.selectRate = this.selectRate.bind(this)
@@ -106,7 +117,9 @@ export default class EmailReport extends Component {
       <div className="report">
         <TimeGroupingBar
           setTimeGroup={this.setTimeGroup}
-          timeGroupSelected={this.state.timeGroup}/>
+          timeGroupSelected={this.state.timeGroup}>
+          <SlicersAndDicers slices={this.state.slices}/>
+        </TimeGroupingBar>
         <div className="interactive-chart block" id="email-report">
           <EmailReportChartRecharts
             selectedData={this.getSelectedData()}

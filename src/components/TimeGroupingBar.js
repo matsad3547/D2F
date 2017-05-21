@@ -1,7 +1,10 @@
 import React from 'react'
 import { timeGroups } from '../utils/'
 
-const TimeGroupingBar = ({ setTimeGroup, timeGroupSelected }) => {
+const TimeGroupingBar = ({  setTimeGroup,
+                            timeGroupSelected,
+                            children ,
+                          }) => {
 
   const style = {
     clicked: {
@@ -12,19 +15,22 @@ const TimeGroupingBar = ({ setTimeGroup, timeGroupSelected }) => {
       background: '#bebebe',
       color: '#351c28',
     }
-
   }
 
   return (
     <div className='time-group'>
-      <p>Date Grouping</p>
-      { timeGroups.map( (int, i) => <input
-        style={ (int.value === timeGroupSelected) ? style.clicked : style.normal }
-        type="button"
-        key={i}
-        onClick={ () => setTimeGroup(int.value) }
-        value={int.label}></input>
-    )}
+      <div>
+        { timeGroups.map( (int, i) => <input
+          style={ (int.value === timeGroupSelected) ? style.clicked : style.normal }
+          type="button"
+          key={i}
+          onClick={ () => setTimeGroup(int.value) }
+          value={int.label}></input>
+      )}
+
+      </div>
+
+    {children}
     </div>
   )
 }

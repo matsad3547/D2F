@@ -35,7 +35,6 @@ h5 {
   color: white;
   background-image:
   linear-gradient( #6a273a, #351c29);
-  /*flex: 1 1 auto;*/
 }
 .company-header {
   padding: 1em;
@@ -72,7 +71,6 @@ li.section:active {
   linear-gradient( #6a273a, #873D48);
   background-size: cover;
 }
-
 .ReactTabs {
   width: 80%;
   background-color: #f7f7f7;
@@ -132,40 +130,63 @@ li.section:active {
   display: inline-flex;
   width: 100%;
   padding-bottom: 1em;
+  justify-content: space-between;
 }
-.time-group > p {
+/*.time-group > p {
   padding: 0 1em 0 0;
-}
-.time-group > input {
+}*/
+input[type="button"] {
   margin: 0 .25em;
+  height: 22px;
   padding: .25em 1.5em;
   border-radius: .5em;
   border: none;
+}
+input[type="button"]:focus {
+  background-image:
+  linear-gradient( #6a273a, #873D48);
+  background-size: cover;
+}
+input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  height: 14px;
+  width: 14px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px gray;
+}
+label {
+  font-size: 2.25em;
 }
 .value-checkbox {
   font-size: .4em;
   width: auto;
   padding: .5em;
 }
-.value-checkbox li {
-  list-style: none;
-  display: inline;
+.slicer {
+  width: 180px;
+  margin: 0;
 }
-
-/*input.checked  {
-  background: red;
-  -webkit-appearance: none;
-  -moz-appesarance: none;
-  height: 14px;
-  width: 14px;
-  border-radius: 5px;
-}*/
-
-.rd3-chart-title {
+.slicer input {
+  position: relative;
+  margin: 0;
+  width: 100%;
+  z-index: 1;
+}
+.slice-and-dice {
+  position: absolute;
+  top: 58px;
+  padding-top: 22px;
+  width: 180px;
+  height: 10em;
+  background-color: white;
+  border-radius: .5em;
+  border: 1px solid #a8a2aa;
+}
+/*.rd3-chart-title {
   padding: .25em;
-}
+}*/
 .footer {
-  /*position: static;*/
   text-align: center;
   bottom: 0;
   width: 100%;
