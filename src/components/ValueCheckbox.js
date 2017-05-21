@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Checkbox = ({ value, selectValue, checked, color }) => {
+const ValueCheckbox = ({ value, selectValue, checked, color }) => {
 
   const style = {
     ul: {
@@ -44,4 +44,4 @@ const Checkbox = ({ value, selectValue, checked, color }) => {
   )
 }
 
-export default Checkbox
+export default ValueCheckbox

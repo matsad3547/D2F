@@ -1,5 +1,5 @@
 import React from 'react'
-import Checkbox from './Checkbox'
+import ValueCheckbox from './ValueCheckbox'
 import { metrics } from '../utils/'
 
 const MetricSelection = ({ selectMetric, metricsSelected }) => {
@@ -7,7 +7,7 @@ const MetricSelection = ({ selectMetric, metricsSelected }) => {
   return (
     <div className="metric-select">
       <h4>Metrics</h4>
-      { metrics.map( (metric, i) => <Checkbox
+      { metrics.map( (metric, i) => <ValueCheckbox
         selectValue={selectMetric}
         key={`metric-${i}`}
         value={metric}
