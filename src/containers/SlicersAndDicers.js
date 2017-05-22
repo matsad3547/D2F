@@ -7,13 +7,15 @@ export default class SlicersAndDicers extends Component {
     super(props)
     this.state = {
       shown: false,
-      accounts: [],
-      lists: [],
-      segments: [],
-      interestCategories: [],
-      locations: [],
-      members: [],
-      campaignsOrEmails: [],
+      slicesSelected: {
+        accounts: [],
+        lists: [],
+        segments: [],
+        interestCategories: [],
+        locations: [],
+        members: [],
+        campaignsOrEmails: [],
+      }
     }
     this.onClick = this.onClick.bind(this)
     this.handleClickOutside = this.handleClickOutside.bind(this)
@@ -49,15 +51,18 @@ export default class SlicersAndDicers extends Component {
   }
 
   selectSlice({ slice, val }){
-    const slices = this.state[slice]
+    const slices = this.state.slicesSelected[slice]
+    const slicesSelected = {...this.state.slicesSelected}
     if (slices.includes(val)){
+      slicesSelected[slice] = addToArr(slices, val)
       this.setState({
-        [slice]: addToArr(slices, val),
+        slicesSelected,
       })
     }
     else {
+      slicesSelected[slice] = removeFromArr(slices, val),
       this.setState({
-        [slice]: removeFromArr(slices, val),
+        slicesSelected,
       })
     }
   }

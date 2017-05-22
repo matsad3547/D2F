@@ -1,12 +1,12 @@
 import React from 'react'
 
-const SliceCheckbox = ({  value,
+const SliceCheckbox = ({  val,
                           checked,
                           slice,
                           selectSlice,
                          }) => {
 
-                           console.log('value:', value);
+                          //  console.log('value:', value);
 
   const style = {
     input: {
@@ -21,13 +21,13 @@ const SliceCheckbox = ({  value,
 
   return (
     <div className="value-checkbox">
-      <label htmlFor={`slice-checkbox-${value}`}>{value}</label>
+      <label htmlFor={`slice-checkbox-${val}`}>{val}</label>
       <input
-        id={`slice-checkbox-${value}`}
+        id={`slice-checkbox-${val}`}
         style={ checked ? style.inputChecked : style.input}
         type="checkbox"
-        value={value}
-        onChange={ () => selectSlice({slice, val: value}) }
+        value={val}
+        onChange={ () => selectSlice({slice, val,}) }
         checked={checked}
         ></input>
     </div>

@@ -13,7 +13,7 @@ const SliceGroup = ({ slice,
       <p>{sliceParams[slice].label}</p>
       {slices.map( (val, i) => <SliceCheckbox
         key={`slice-checkbox-${i}`}
-        value={val}
+        val={val}
         checked={selected.includes(val)}
         slice={slice}
         selectSlice={selectSlice}/>
