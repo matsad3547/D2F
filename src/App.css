@@ -178,7 +178,7 @@ label {
   top: 58px;
   padding-top: 22px;
   width: 180px;
-  height: 10em;
+  /*height: 10em;*/
   background-color: white;
   border-radius: .5em;
   border: 1px solid #a8a2aa;

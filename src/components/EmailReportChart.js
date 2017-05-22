@@ -1,86 +1,76 @@
 import React from 'react'
-import rd3 from 'rd3'
-// import { Line } from './LineChart'
-// console.log('Line:', Line);
-// import { Line } from 'react-charts'
-// console.log('line:', Line ? Line : 'nothing');
-import d3 from 'd3'
-import { metrics, getMetricsSelected } from '../utils'
+import { metrics, rates, months, days } from '../utils/'
+import {ComposedChart, Line, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts'
 
-const LineChart = rd3.LineChart
+const CustomToolTip = ({  type,
+                          payload,
+                          label,
+                          active,
+                         }) => {
 
-const getDisplayData = selectedData => {
-  const selectedMetrics = getMetricsSelected(selectedData)
-  const data = selectedMetrics.map( met => {
-    const series = {
-      name: metrics.find( metric => metric.value === met).label,
-      values: selectedData.map( d => {
-        return {
-          x: Date.parse(d.timestamp),
-          y: d[met],
-        }
-      })
-    }
-    return series
-  })
-  return data
+  const metricVals = metrics.map( obj => obj.value )
+  const monthAbvs = months.map( obj => obj.abv )
+  const dayAbvs = days.map( obj => obj.abv )
+
+  const padding = 5
+
+  if(active) {
+    return (
+      <div className="tooltip">
+        <p style={{padding: padding, fontSize: '1.5em'}}>{
+            monthAbvs.includes(label) ?
+            months.find( month => month.abv === label).label :
+             ( dayAbvs.includes(label) ? days.find( day => day.abv === label ).label : label)}</p>
+        { payload.map( (obj, i) =>
+          <p
+            style={{color: obj.color, padding: 5}}
+            key={`value-${i}`}>{
+            metricVals.includes(obj.name) ?
+            metrics.find( metric => obj.name === metric.value).label :
+            rates.find( rate => obj.name === rate.value).label
+          }: { metricVals.includes(obj.name) ?
+            obj.value :
+            (obj.value * 100).toFixed(1) + '%'}</p>
+        )}
+      </div>
+    )
+  }
+  else return null
 }
 
-const EmailReportChart = ({ selectedData }) => {
 
-  if (selectedData !== undefined) {
-    const data = getDisplayData(selectedData)
-    const seriesVals = data[0].values
-    const length = seriesVals.length
-    const xStart = seriesVals[0].x
-    const xEnd = seriesVals[length - 1].x
-    const xDomain = [
-      xStart - (0.0001 * xStart),
-      xEnd + (0.0001 * xEnd),
-    ]
+const EmailReportChartRecharts = ({ selectedData, metricsSelected, ratesSelected }) => {
+  const container = document.getElementById('email-report')
+  const width = container ? container.offsetWidth * .66 : 0
+  console.log('selected data:', selectedData);
 
-    const yAccessor = d => {
-      return d.y
-    }
-
+  if(selectedData) {
     return (
-      <div className="chart" >
-        <LineChart
-
-          circleRadius={3}
-          colors={d3.scale.category10()}
-          legend={false}
-          data={data}
-          width="100%"
-          height="80vh"
-          viewBoxObject={{
-            x: 0,
-            y: 0,
-            width: 500,
-            height: 400,
-          }}
-          title="Metric Trend"
-          xAxisLabel="Months"
-          xAccessor={ d => {
-            return new Date(d.x)
-          }
-        }
-        xAxisTickInterval={{unit: 'months', interval: 2}}
-        yAxisLabel="Metrics"
-        yAccessor={ yAccessor }
-        domain={{x: xDomain, y: [0, 300]}}
-        gridHorizontal={true}
-        />
+      <div className="chart">
+        <h4>Performance Trend</h4>
+        <ComposedChart className="chart" width={width} height={400} data={selectedData}
+          margin={{top: 20, right: 20, bottom: 20, left: 0}}>
+          <YAxis yAxisId="rate" hide={true}/>
+          <XAxis dataKey="period"/>
+          <YAxis />
+          <Tooltip content={<CustomToolTip/>}/>
+          <CartesianGrid stroke='#f5f5f5'/>
+          { metricsSelected.map( (metricSelected, i) => <Bar
+            key={`metric-${i}`}
+            dataKey={metricSelected}
+            barSize={(width - 60)/selectedData.length} fill={metrics.find( obj => obj.value === metricSelected ).color}
+            />)}
+          { ratesSelected.map( (rateSelected, i) => <Line
+            key={`rate-${i}`} type='monotone' yAxisId="rate" dataKey={rateSelected} stroke={rates.find( obj => obj.value === rateSelected).color}/>)}
+        </ComposedChart>
       </div>
     )
   }
   else {
     return (
-      <div className="chart">
-        <p>Data is loading</p>
-      </div>
+      <div className="chart">Data is loading...</div>
     )
   }
 }
 
-export default EmailReportChart
+export default EmailReportChartRecharts

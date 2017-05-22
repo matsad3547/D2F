@@ -1,6 +1,6 @@
 import React from 'react'
 import SectionSidebar from './SectionSidebar'
-import EmailReport from './EmailReport'
+import EmailReport from '../containers/EmailReport'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 
 const Main = ({
@@ -30,11 +30,9 @@ const Main = ({
 
         <TabPanel>
           <EmailReport />
-
         </TabPanel>
         <TabPanel>
           <p>Campaign Comparisons will go here</p>
-
         </TabPanel>
         <TabPanel>
           <p>Lists and Contracts will go here</p>

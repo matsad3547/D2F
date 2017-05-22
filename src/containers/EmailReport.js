@@ -7,11 +7,12 @@ import {
   aggregateByTime,
   } from '../utils/'
 
-import MetricSelection from './MetricSelection'
-import RateSelection from './RateSelection'
-import TimeGroupingBar from './TimeGroupingBar'
+import MetricSelection from '../components/MetricSelection'
+import RateSelection from '../components/RateSelection'
+import TimeGroupingBar from '../components/TimeGroupingBar'
+import EmailReportChart from '../components/EmailReportChart'
+
 import SlicersAndDicers from './SlicersAndDicers'
-import EmailReportChartRecharts from './EmailReportChartRecharts'
 
 export default class EmailReport extends Component {
   constructor(props) {
@@ -121,7 +122,7 @@ export default class EmailReport extends Component {
           <SlicersAndDicers slices={this.state.slices}/>
         </TimeGroupingBar>
         <div className="interactive-chart block" id="email-report">
-          <EmailReportChartRecharts
+          <EmailReportChart
             selectedData={this.getSelectedData()}
             metricsSelected={this.state.metricsSelected}
             ratesSelected={this.state.ratesSelected}

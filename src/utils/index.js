@@ -128,8 +128,6 @@ export const rates = [
   },
 ]
 
-export const getMetricsSelected = selectedData =>  Object.keys(selectedData[0]).filter( k => k !== 'timestamp')
-
 export const timeGroups = [
   {
     label: 'Day',
@@ -153,30 +151,113 @@ export const timeGroups = [
   },
 ]
 
-const months = [
-  'Jan',
-  'Feb',
-  'Mar',
-  'Apr',
-  'May',
-  'Jun',
-  'Jul',
-  'Aug',
-  'Sep',
-  'Oct',
-  'Nov',
-  'Dec',
+export const months = [
+  {
+    abv: 'Jan',
+    label: 'January',
+  },
+  {
+    abv: 'Feb',
+    label: 'February',
+  },
+  {
+    abv: 'Mar',
+    label: 'March',
+  },
+  {
+    abv: 'Apr',
+    label: 'April',
+  },
+  {
+    abv: 'May',
+    label: 'May',
+  },
+  {
+    abv: 'Jun',
+    label: 'June',
+  },
+  {
+    abv: 'Jul',
+    label: 'July',
+  },
+  {
+    abv: 'Aug',
+    label: 'August',
+  },
+  {
+    abv: 'Sep',
+    label: 'September',
+  },
+  {
+    abv: 'Oct',
+    label: 'October',
+  },
+  {
+    abv: 'Nov',
+    label: 'November',
+  },
+  {
+    abv: 'Dec',
+    label: 'December',
+  },
 ]
 
-const days = [
-  'Sun',
-  'Mon',
-  'Tue',
-  'Wed',
-  'Thu',
-  'Fri',
-  'Sat',
+export const days = [
+  {
+    abv: 'Sun',
+    label: 'Sunday',
+  },
+  {
+    abv: 'Mon',
+    label: 'Monday',
+  },
+  {
+    abv: 'Tue',
+    label: 'Tuesday',
+  },
+  {
+    abv: 'Wed',
+    label: 'Wednesday',
+  },
+  {
+    abv: 'Thu',
+    label: 'Thursday',
+  },
+  {
+    abv: 'Fri',
+    label: 'Friday',
+  },
+  {
+    abv: 'Sat',
+    label: 'Saturday',
+  },
 ]
+
+export const sliceParams = {
+  accounts: {
+    label: 'Accounts',
+  },
+  lists: {
+    label: 'Lists',
+  },
+  segments: {
+    label: 'Segments',
+  },
+  interestCategories: {
+    label: 'Interest Categories'
+  },
+  locations: {
+    label: 'Locations',
+  },
+  members: {
+    label: 'Members',
+  },
+  campaignsOrEmails: {
+    label: 'Campaigns/Emails'
+  },
+}
+
+export const getMetricsSelected = selectedData =>  Object.keys(selectedData[0]).filter( k => k !== 'timestamp')
 
 export const addToArr = (arr, val) => {
   return [...arr, val]
@@ -226,9 +307,9 @@ const getTimeInterval = time => {
 export const aggregateByTime = (selectedData, time) => {
   const keys = getRelevantKeys(selectedData[0], 'timestamp')
   const timeInterval = getTimeInterval(time)
-  const aggregatedData = timeInterval.map( (element, i) => {
+  const aggregatedData = timeInterval.map( (obj, i) => {
     let dataObj = {
-      period: element,
+      period: obj.abv,
     }
     keys.forEach( key => {
       Object.assign(dataObj, {[key]: []})
