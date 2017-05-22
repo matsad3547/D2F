@@ -137,7 +137,7 @@ li.section:active {
 }*/
 input[type="button"] {
   margin: 0 .25em;
-  height: 22px;
+  height: 2em;
   padding: .25em 1.5em;
   border-radius: .5em;
   border: none;
@@ -167,7 +167,7 @@ input[type="checkbox"] {
   width: 180px;
   margin: 0;
 }
-.slicer input[type="button"] {
+.slicer > input[type="button"] {
   position: relative;
   margin: 0;
   width: 100%;
@@ -175,10 +175,9 @@ input[type="checkbox"] {
 }
 .slice-and-dice {
   position: absolute;
-  top: 58px;
+  top: 6em;
   padding-top: 22px;
   width: 180px;
-  /*height: 10em;*/
   background-color: white;
   border-radius: .5em;
   border: 1px solid #a8a2aa;
@@ -198,6 +197,12 @@ input[type="checkbox"] {
   display: inline-flex;
   justify-content: space-between;
   padding: .25em;
+}
+.slicer-buttons {
+  width: 100%;
+  padding: .5em;
+  display: inline-flex;
+  justify-content: space-around;
 }
 .footer {
   text-align: center;

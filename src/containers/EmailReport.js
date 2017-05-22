@@ -20,7 +20,7 @@ export default class EmailReport extends Component {
     this.state = {
         data: {},
         selectedData: [],
-        metricsSelected: ['opens'],
+        metricsSelected: ['emails_sent'],
         ratesSelected: ['delivery_rate'],
         timeGroup: 'month',
         slices: {

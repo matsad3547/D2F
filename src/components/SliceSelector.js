@@ -1,5 +1,8 @@
 import React from 'react'
 import SliceGroup from './SliceGroup'
+import Button from './Button'
+
+import { dynamicStyles } from '../utils/'
 
 const SliceSelector = ({  shown,
                           slices,
@@ -7,8 +10,9 @@ const SliceSelector = ({  shown,
                           selectSlice,
                          }) => {
   const sliceKeys = Object.keys(slices)
+  const style = dynamicStyles.button
   // console.log('sliceKeys:', sliceKeys);
-  console.log('slicesSelected:', slicesSelected);
+  // console.log('slicesSelected:', slicesSelected);
   if (shown) {
     return (
       <div className="slice-and-dice">
@@ -20,6 +24,16 @@ const SliceSelector = ({  shown,
             selected={slicesSelected[slice]}
             selectSlice={selectSlice}/>
       )}
+      <div className="slicer-buttons">
+        <Button
+          style={style.normal}
+          value="Apply"
+          />
+        <Button
+          style={style.normal}
+          value="Reset"
+          />
+      </div>
       </div>
     )
   }

@@ -1,6 +1,7 @@
 export const barColors = [
   '#C41E3D',
   '#fc4f67',
+  '#E56399',
   '#FF9B54',
   '#FFD166',
   '#F0A202',
@@ -47,14 +48,19 @@ export const sections = [
 
 export const metrics = [
   {
-    label: 'Opens',
-    value: 'opens',
-    color: barColors[0],
+    label: 'Sends',
+    value: 'emails_sent',
+    color: barColors[0]
   },
   {
-    label: 'Deliveries',
+    label: 'Delivers',
     value: 'deliveries',
     color: barColors[1],
+  },
+  {
+    label: 'Opens',
+    value: 'opens',
+    color: barColors[2],
   },
   // {
   //   label: 'Form Fills',
@@ -64,22 +70,22 @@ export const metrics = [
   {
     label: 'Clicks',
     value: 'clicks',
-    color: barColors[2],
+    color: barColors[3],
   },
   {
     label: 'Hard Bounces',
     value: 'hard_bounces',
-    color: barColors[3],
+    color: barColors[4],
   },
   {
     label: 'Soft Bounces',
     value: 'soft_bounces',
-    color: barColors[4],
+    color: barColors[5],
   },
   {
     label: 'Unsubscribes',
     value: 'unsubscribes',
-    color: barColors[5],
+    color: barColors[6],
   },
 ]
 
@@ -255,6 +261,19 @@ export const sliceParams = {
   campaignsOrEmails: {
     label: 'Campaigns/Emails'
   },
+}
+
+export const dynamicStyles = {
+  button: {
+    clicked: {
+      background: '#351c28',
+      color: '#fefefe',
+    },
+    normal: {
+      background: '#bebebe',
+      color: '#351c28',
+    }
+  }
 }
 
 export const getMetricsSelected = selectedData =>  Object.keys(selectedData[0]).filter( k => k !== 'timestamp')

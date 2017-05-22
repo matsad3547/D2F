@@ -51,16 +51,24 @@ export default class SlicersAndDicers extends Component {
   }
 
   selectSlice({ slice, val }){
+    console.log('slice:', slice, 'val', val);
     const slices = this.state.slicesSelected[slice]
-    const slicesSelected = {...this.state.slicesSelected}
-    if (slices.includes(val)){
-      slicesSelected[slice] = addToArr(slices, val)
+    console.log('slices:', slices);
+    if (!slices.includes(val)){
+      const slicesSelected = {
+        ...this.state.slicesSelected,
+        [slice]: addToArr(slices, val)
+      }
+      console.log('slices selected:', slicesSelected);
       this.setState({
         slicesSelected,
       })
     }
     else {
-      slicesSelected[slice] = removeFromArr(slices, val),
+      const slicesSelected = {
+        ...this.state.slicesSelected,
+        [slice]: removeFromArr(slices, val),
+      }
       this.setState({
         slicesSelected,
       })
@@ -78,9 +86,8 @@ s
         color: '#351c28',
       }
     }
-    console.log('slices selected at state', this.state.slicesSelected);
     return(
-      <div className="slicer" ref={this.setWrapperRef}>
+      <div className="slicer" ref={this.setWrapperRef} style={ this.state.shown ? {width: 180} : {width: 'auto'}}>
         <input
           className="button-static"
           style={ this.state.shown ? style.clicked : style.normal }

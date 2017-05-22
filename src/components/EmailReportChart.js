@@ -38,11 +38,10 @@ const CustomToolTip = ({  type,
   else return null
 }
 
-
 const EmailReportChartRecharts = ({ selectedData, metricsSelected, ratesSelected }) => {
   const container = document.getElementById('email-report')
   const width = container ? container.offsetWidth * .66 : 0
-  console.log('selected data:', selectedData);
+  // console.log('selected data:', selectedData);
 
   if(selectedData) {
     return (
