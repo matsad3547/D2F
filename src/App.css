@@ -155,7 +155,7 @@ input[type="checkbox"] {
   border-radius: 5px;
   box-shadow: 1px 1px 1px gray;
 }
-label {
+.value-checkbox > label {
   font-size: 2.25em;
 }
 .value-checkbox {
@@ -167,7 +167,7 @@ label {
   width: 180px;
   margin: 0;
 }
-.slicer input {
+.slicer input[type="button"] {
   position: relative;
   margin: 0;
   width: 100%;
@@ -183,9 +183,22 @@ label {
   border-radius: .5em;
   border: 1px solid #a8a2aa;
 }
-/*.rd3-chart-title {
+.slice-group {
+  display: flex;
+  flex-direction: column;
+  margin: .5em;
+  border-radius: .5em;
+  border: 1px solid #a8a2aa;
+}
+.slice-group > p {
+  background-color: #a8a2aa;
+  color: white;
+}
+.slice-checkbox {
+  display: inline-flex;
+  justify-content: space-between;
   padding: .25em;
-}*/
+}
 .footer {
   text-align: center;
   bottom: 0;

@@ -10,17 +10,15 @@ const SliceCheckbox = ({  val,
 
   const style = {
     input: {
-      marginRight: '.5em',
       background: '#DBDBDB',
     },
     inputChecked: {
-      marginRight: '.5em',
       background: '#6a273a',
     },
   }
 
   return (
-    <div className="value-checkbox">
+    <div className="slice-checkbox">
       <label htmlFor={`slice-checkbox-${val}`}>{val}</label>
       <input
         id={`slice-checkbox-${val}`}
