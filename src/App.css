@@ -46,8 +46,11 @@ h5 {
   padding: 1em
 }
 .user-header > span {
-  font-size: 2em;
-  padding: .3em;
+  font-size: 1.8em;
+  padding: .5em;
+  border: solid 1px white;
+  border-radius: 1em;
+  margin-right: .5em;
 }
 .sections {
   flex-grow: 1;
@@ -176,8 +179,8 @@ input[type="checkbox"] {
 .slice-and-dice {
   position: absolute;
   top: 6em;
-  padding-top: 22px;
-  width: 180px;
+  padding-top: 2em;
+  width: 15em;
   background-color: white;
   border-radius: .5em;
   border: 1px solid #a8a2aa;
@@ -190,8 +193,10 @@ input[type="checkbox"] {
   border: 1px solid #a8a2aa;
 }
 .slice-group > p {
+  padding: .2em;
   background-color: #a8a2aa;
   color: white;
+  border-radius: .4em .4em 0 0;
 }
 .slice-checkbox {
   display: inline-flex;

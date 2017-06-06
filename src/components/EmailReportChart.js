@@ -11,7 +11,6 @@ const CustomToolTip = ({  type,
   const metricVals = metrics.map( obj => obj.value )
   const monthAbvs = months.map( obj => obj.abv )
   const dayAbvs = days.map( obj => obj.abv )
-
   const padding = 5
 
   if(active) {
@@ -38,10 +37,14 @@ const CustomToolTip = ({  type,
   else return null
 }
 
-const EmailReportChartRecharts = ({ selectedData, metricsSelected, ratesSelected }) => {
-  const container = document.getElementById('email-report')
-  const width = container ? container.offsetWidth * .66 : 0
-  // console.log('selected data:', selectedData);
+const EmailReportChartRecharts = ({ selectedData,
+                                    metricsSelected, ratesSelected,
+                                    width,
+                                   }) => {
+
+  // const container = document.getElementById('email-report')
+  // const width = container ? container.offsetWidth * .66 : 0
+  console.log('selected data:', selectedData);
 
   if(selectedData) {
     return (

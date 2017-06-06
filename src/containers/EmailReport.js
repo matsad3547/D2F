@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import fetch from 'isomorphic-fetch'
 import {
+  metrics,
+  rates,
   addToArr,
   removeFromArr,
   calcRateVal,
@@ -91,8 +93,11 @@ export default class EmailReport extends Component {
   getSelectedData() {
     const data = this.state.data
     if (data.timeseries !== undefined){
-      const metrics = this.state.metricsSelected
-      const rates = this.state.ratesSelected
+
+      const metricVals = metrics.map( obj => obj.value )
+      const rateVals = rates.map( obj => obj.value )
+      // const metrics = this.state.metricsSelected
+      // const rates = this.state.ratesSelected
       const time = this.state.timeGroup
       const timeSeries = data.timeseries
       const selectedData = aggregateByTime(timeSeries, time)
@@ -100,11 +105,16 @@ export default class EmailReport extends Component {
         let selectedObj = {
           period: obj.period,
         }
-        metrics.forEach( met => {
+        metricVals.forEach( met => {
           Object.assign( selectedObj, {[met]: obj[met]})
         })
-        rates.forEach( rate => {
+        // metrics.forEach( met => {
+        //   Object.assign( selectedObj, {[met]: obj[met]})
+        // })
+        rateVals.forEach( rate => {
           Object.assign( selectedObj, calcRateVal(obj, rate))
+        // rates.forEach( rate => {
+        //   Object.assign( selectedObj, calcRateVal(obj, rate))
         })
         return selectedObj
       })
@@ -113,6 +123,8 @@ export default class EmailReport extends Component {
   }
 
   render() {
+    const container = document.getElementById('email-report')
+    const width = container ? container.offsetWidth * .66 : 0
 
     return (
       <div className="report">
@@ -126,6 +138,7 @@ export default class EmailReport extends Component {
             selectedData={this.getSelectedData()}
             metricsSelected={this.state.metricsSelected}
             ratesSelected={this.state.ratesSelected}
+            width={width}
             />
           <MetricSelection
             selectMetric={this.selectMetric}

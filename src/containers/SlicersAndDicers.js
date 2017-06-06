@@ -87,7 +87,7 @@ s
       }
     }
     return(
-      <div className="slicer" ref={this.setWrapperRef} style={ this.state.shown ? {width: 180} : {width: 'auto'}}>
+      <div className="slicer" ref={this.setWrapperRef} style={ this.state.shown ? {width: '15em'} : {width: 'auto'}}>
         <input
           className="button-static"
           style={ this.state.shown ? style.clicked : style.normal }
