@@ -135,9 +135,9 @@ li.section:active {
   padding-bottom: 1em;
   justify-content: space-between;
 }
-/*.time-group > p {
-  padding: 0 1em 0 0;
-}*/
+.headline {
+  background-color: red;
+}
 input[type="button"] {
   margin: 0 .25em;
   height: 2em;

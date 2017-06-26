@@ -50,17 +50,20 @@ export const metrics = [
   {
     label: 'Sends',
     value: 'emails_sent',
-    color: barColors[0]
+    color: barColors[0],
+    positive: true,
   },
   {
     label: 'Delivers',
     value: 'deliveries',
     color: barColors[1],
+    positive: true,
   },
   {
     label: 'Opens',
     value: 'opens',
     color: barColors[2],
+    positive: true,
   },
   // {
   //   label: 'Form Fills',
@@ -71,21 +74,25 @@ export const metrics = [
     label: 'Clicks',
     value: 'clicks',
     color: barColors[3],
+    positive: true,
   },
   {
     label: 'Hard Bounces',
     value: 'hard_bounces',
     color: barColors[4],
+    positive: false,
   },
   {
     label: 'Soft Bounces',
     value: 'soft_bounces',
     color: barColors[5],
+    positive: false,
   },
   {
     label: 'Unsubscribes',
     value: 'unsubscribes',
     color: barColors[6],
+    positive: false,
   },
 ]
 
@@ -96,6 +103,7 @@ export const rates = [
     color: trendColors[0],
     params: ['opens', 'deliveries'],
     eq: (opens, deliveries) => opens/deliveries,
+    positive: true,
   },
   {
     label: 'Open Rate',
@@ -103,6 +111,7 @@ export const rates = [
     color: trendColors[1],
     params: ['opens', 'emails_sent'],
     eq: (opens, emails_sent) => opens/emails_sent,
+    positive: true,
   },
   {
     label: 'CTOR',
@@ -110,6 +119,7 @@ export const rates = [
     color: trendColors[2],
     params: ['opens', 'clicks'],
     eq: (opens, clicks) => clicks/opens,
+    positive: true,
   },
   {
     label: 'CTR',
@@ -117,20 +127,23 @@ export const rates = [
     color: trendColors[3],
     params: ['clicks', 'emails_sent', 'hard_bounces', 'soft_bounces'],
     eq: (clicks, emails_sent, hard_bounces, soft_bounces) => clicks/(emails_sent - hard_bounces - soft_bounces),
+    positive: true,
   },
   {
     label: 'Bounce Rate',
     value: 'bounce_rate',
     color: trendColors[4],
     params: ['emails_sent', 'hard_bounces', 'soft_bounces'],
-    eq: (emails_sent, hard_bounces, soft_bounces) => (hard_bounces + soft_bounces)/emails_sent
+    eq: (emails_sent, hard_bounces, soft_bounces) => (hard_bounces + soft_bounces)/emails_sent,
+    positive: false,
   },
   {
     label: 'Unsubscribe Rate',
     value: 'unsubscribe_rate',
     color: trendColors[5],
     params: ['unsubscribes', 'emails_sent'],
-    eq: (unsubscribes, emails_sent) => unsubscribes/emails_sent
+    eq: (unsubscribes, emails_sent) => unsubscribes/emails_sent,
+    positive: false,
   },
 ]
 

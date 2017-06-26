@@ -9,10 +9,11 @@ import {
   aggregateByTime,
   } from '../utils/'
 
+import TimeGroupingBar from '../components/TimeGroupingBar'
+import HeadlineCards from '../components/HeadlineCards'
+import EmailReportChart from '../components/EmailReportChart'
 import MetricSelection from '../components/MetricSelection'
 import RateSelection from '../components/RateSelection'
-import TimeGroupingBar from '../components/TimeGroupingBar'
-import EmailReportChart from '../components/EmailReportChart'
 
 import SlicersAndDicers from './SlicersAndDicers'
 
@@ -133,6 +134,9 @@ export default class EmailReport extends Component {
           timeGroupSelected={this.state.timeGroup}>
           <SlicersAndDicers slices={this.state.slices}/>
         </TimeGroupingBar>
+        <HeadlineCards
+          selectedData={this.getSelectedData()}
+          />
         <div className="interactive-chart block" id="email-report">
           <EmailReportChart
             selectedData={this.getSelectedData()}
