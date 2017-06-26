@@ -3,24 +3,41 @@ import {
   metrics,
   rates,
   } from '../utils/'
+import Card from './Card'
 
 const HeadlineCards = ({ selectedData }) => {
-  // const cards = [...metrics, ...rates].map( obj => {
-  //   return {
-  //     label: obj.label,
-  //     value: obj.value,
-  //   }
-  // })
-  console.log('data from Headline cards:', selectedData);
+
+  let cards = metrics.filter( metric =>
+    metric.value !== 'hard_bounces' &&
+    metric.value !== 'soft_bounces' &&
+    metric.value !== 'unsubscribes'
+   )
+
+  const bounces = {
+    label: 'Bounces',
+    value: 'bounces',
+    positive: false,
+  }
+
+  const unsubscribes = metrics.find( metric => metric.value === 'unsubscribes')
+  cards = [...cards, bounces, unsubscribes]
+  console.log('data from Headline cards:', selectedData, cards);
   if (selectedData) {
     return (
       <div className="headline">
-        { metrics.map( metric => <Card
-          key={`${metric.value}_card`}
-          title={metric.label}
-          value={selectedData[selectedData.length - 1][metric.value]}
-          change={selectedData[selectedData.length - 1][metric.value] - selectedData[selectedData.length - 2][metric.value]}
-          positive={metric.positives} />
+        { cards.map( card => <Card
+          key={`${card.value}_card`}
+          title={card.label}
+          value={ card.value === 'bounces' ? selectedData[selectedData.length - 1].soft_bounces + selectedData[selectedData.length - 1].hard_bounces : selectedData[selectedData.length - 1][card.value]}
+          change={card.value === 'bounces' ? parseFloat(((((selectedData[selectedData.length - 1].soft_bounces + selectedData[selectedData.length - 1].hard_bounces) - (selectedData[selectedData.length - 2].soft_bounces + selectedData[selectedData.length - 2].hard_bounces))/(selectedData[selectedData.length - 2].soft_bounces + selectedData[selectedData.length - 2].hard_bounces)) * 100).toFixed(1)) :parseFloat((((selectedData[selectedData.length - 1][card.value] - selectedData[selectedData.length - 2][card.value])/selectedData[selectedData.length - 2][card.value]) * 100).toFixed(1)) }
+          positive={card.positive} />
+        )}
+        { rates.map( rate => <Card
+          key={`${rate.value}_rate`}
+          title={rate.label}
+          value={ selectedData[selectedData.length - 1][rate.value]}
+          change={parseFloat((((selectedData[selectedData.length - 1][rate.value] - selectedData[selectedData.length - 2][rate.value])/selectedData[selectedData.length - 2][rate.value]) * 100).toFixed(1)) }
+          positive={rate.positive} />
         )}
       </div>
     )
@@ -30,20 +47,4 @@ const HeadlineCards = ({ selectedData }) => {
   )
 }
 
-// headline goes here
-// {selectedData[selectedData.length-1][metrics[0].value]}
-
-
-
 export default HeadlineCards
-
-const Card = ({title, value, change, positive }) => (
-  <div className="card">
-    <h3>{title}</h3>
-    <div className="card-sinline">
-      <h2>{value}</h2>
-      <p style={ positive ? {background: '#033859'} : {background: '#CE2633'}}>
-        { change > 0 ? '+' + change : change }</p>
-    </div>
-  </div>
-)

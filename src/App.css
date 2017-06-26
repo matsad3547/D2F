@@ -3,6 +3,7 @@
   padding: 0;
   margin: 0;
   font-size: 1.25vw;
+  font-family: 'Nunito', sans-serif;
 }
 
 h1 {
@@ -37,6 +38,7 @@ h5 {
   linear-gradient( #6a273a, #351c29);
 }
 .company-header {
+  font-family: 'Pacifico', cursive;
   padding: 1em;
   background-color: #351c29;
   text-align: left;
@@ -136,7 +138,36 @@ li.section:active {
   justify-content: space-between;
 }
 .headline {
-  background-color: red;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding-bottom: 1em;
+}
+.card {
+  background-color: white;
+  border: 1px solid #DBDBDB;
+  border-radius: .3em;
+  width: 10em;
+  padding: .4em;
+}
+.card-title {
+  color: #E15460;
+  font-weight: 900;
+}
+.card-value {
+  font-size: 1.3em;
+  font-weight: 900;
+}
+.card div {
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-change {
+  color: white;
+  padding: 0 .4em 0 .4em;
+  border-radius: .2em;
 }
 input[type="button"] {
   margin: 0 .25em;
