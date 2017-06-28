@@ -21,7 +21,7 @@ const HeadlineCards = ({ selectedData }) => {
 
   const unsubscribes = metrics.find( metric => metric.value === 'unsubscribes')
   cards = [...cards, bounces, unsubscribes]
-  console.log('data from Headline cards:', selectedData, cards);
+
   if (selectedData) {
     return (
       <div className="headline">
@@ -35,7 +35,7 @@ const HeadlineCards = ({ selectedData }) => {
         { rates.map( rate => <Card
           key={`${rate.value}_rate`}
           title={rate.label}
-          value={ selectedData[selectedData.length - 1][rate.value]}
+          value={ parseFloat(selectedData[selectedData.length - 1][rate.value] * 100).toFixed(1) + '%'}
           change={parseFloat((((selectedData[selectedData.length - 1][rate.value] - selectedData[selectedData.length - 2][rate.value])/selectedData[selectedData.length - 2][rate.value]) * 100).toFixed(1)) }
           positive={rate.positive} />
         )}
