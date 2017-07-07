@@ -7,6 +7,7 @@ import {
   removeFromArr,
   calcRateVal,
   aggregateByTime,
+  sortByValues,
   } from '../utils/'
 
 import TimeGroupingBar from '../components/TimeGroupingBar'
@@ -61,13 +62,13 @@ export default class EmailReport extends Component {
     const index = metricsSelected.indexOf(metric)
     if (index !== -1 && metricsSelected.length > 1) {
       this.setState({
-        metricsSelected: removeFromArr(metricsSelected, metric)
+        metricsSelected: removeFromArr(metricsSelected, metric),
       })
     }
     else {
       this.setState({
-        metricsSelected: addToArr(metricsSelected, metric)
-,      })
+        metricsSelected: addToArr(metricsSelected, metric),
+      })
     }
   }
   selectRate(rate){
@@ -97,8 +98,6 @@ export default class EmailReport extends Component {
 
       const metricVals = metrics.map( obj => obj.value )
       const rateVals = rates.map( obj => obj.value )
-      // const metrics = this.state.metricsSelected
-      // const rates = this.state.ratesSelected
       const time = this.state.timeGroup
       const timeSeries = data.timeseries
       const selectedData = aggregateByTime(timeSeries, time)
@@ -109,13 +108,8 @@ export default class EmailReport extends Component {
         metricVals.forEach( met => {
           Object.assign( selectedObj, {[met]: obj[met]})
         })
-        // metrics.forEach( met => {
-        //   Object.assign( selectedObj, {[met]: obj[met]})
-        // })
         rateVals.forEach( rate => {
           Object.assign( selectedObj, calcRateVal(obj, rate))
-        // rates.forEach( rate => {
-        //   Object.assign( selectedObj, calcRateVal(obj, rate))
         })
         return selectedObj
       })
@@ -140,8 +134,8 @@ export default class EmailReport extends Component {
         <div className="interactive-chart block" id="email-report">
           <EmailReportChart
             selectedData={this.getSelectedData()}
-            metricsSelected={this.state.metricsSelected}
-            ratesSelected={this.state.ratesSelected}
+            metricsSelected={sortByValues(metrics, this.state.metricsSelected)}
+            ratesSelected={sortByValues(rates, this.state.ratesSelected)}
             width={width}
             />
           <MetricSelection

@@ -365,3 +365,9 @@ export const aggregateByTime = (selectedData, time) => {
   })
   return aggregatedData
 }
+
+export const sortByValues = (arrToSortBy, arrToSort) => {
+  const findIndex = val => arrToSortBy.indexOf( arrToSortBy.find( a => a.value === val) )
+
+  return arrToSort.sort( (x, y) =>  findIndex(x) - findIndex(y) )
+}

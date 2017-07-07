@@ -29,11 +29,11 @@ describe('App() ', () => {
   // const metricsSelected = wrapper.state().metricsSelected
 
 
-  it('should add a metric to the state', () => {
-    const tester = new App()
-    const selectMetric = tester.selectMetric
-    const actual = selectMetric('Tigers')
-    const expected = tester.state.metricsSelected.testerApp
-    expect(actual).toEqual(expected)
-  })
+  // it('should add a metric to the state', () => {
+  //   const tester = new App()
+  //   const selectMetric = tester.selectMetric
+  //   const actual = selectMetric('Tigers')
+  //   const expected = tester.state.metricsSelected.testerApp
+  //   expect(actual).toEqual(expected)
+  // })
 })
