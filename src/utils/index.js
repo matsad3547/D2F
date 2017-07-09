@@ -386,6 +386,15 @@ export const aggregateByTime = (selectedData, time) => {
 
 export const sortByValues = (arrToSortBy, arrToSort) => {
   const findIndex = val => arrToSortBy.indexOf( arrToSortBy.find( a => a.value === val) )
-
   return arrToSort.sort( (x, y) =>  findIndex(x) - findIndex(y) )
+}
+
+export const removeDupes = arr => {
+  let noDupes = []
+  arr.forEach( a => {
+    if(!noDupes.includes(a)){
+      noDupes = [...noDupes, a]
+    }
+  })
+  return noDupes
 }

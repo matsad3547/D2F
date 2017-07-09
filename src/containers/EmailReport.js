@@ -47,11 +47,13 @@ export default class EmailReport extends Component {
   componentWillMount() {
 
     fetch('https://api.github.com/gists/b20d0e6e7966fcfd732934b6bfea7ca2')
+    // "https://api.github.com/gists/64d000bdb6233a83802eee0fbb54f8c7.js">
     .then( res => res.json() )
     .then( res => {
 
       this.setState({
         data: JSON.parse(res.files['D2F-test'].content)
+        // data: JSON.parse(res.files['Charteco-Demo-Data'].content)
       })
     })
     .catch( err => console.error('There was an error:', err) )
