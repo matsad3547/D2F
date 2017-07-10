@@ -3,7 +3,6 @@ import {
   metrics,
   rates,
   months,
-  aggregateByTime,
   calcRateVal,
   quarters,
   dayMillis,
@@ -37,7 +36,7 @@ const makeTimeseries = () => {
   const startDate = today - (dayMillis * length)
   const max = 100
   const arr = new Array(length).fill(undefined)
-  let data = arr.map( a => mockData(100) )
+  let data = arr.map( a => mockData(max) )
   data.forEach( (d, i) => {
     Object.assign( d, {timestamp: new Date(startDate).setHours(24 * i) })
   })
@@ -113,7 +112,7 @@ const aggregateByWeek = () => {
 const aggregateByMonth = () => {
   let data = []
   const dataMonths = removeDupes(rawTimeseries.map( obj => new Date(obj.timestamp).getMonth() ) )
-  dataMonths.map( month => {
+  dataMonths.forEach( month => {
     data = [...data, createBlankObj()]
     data[month].period = months[month].abv
     rawTimeseries.forEach( obj => {
@@ -185,12 +184,12 @@ const data = {
     members: ['Jane Smith', 'Bobby Pin'],
     campaignsOrEmails: ['Newsletter A', 'Promo B'],
   },
-  topCampaigns: createCampaignData()
+  table_data: createCampaignData()
 }
 
 const Data = () => (
   <div>
-    {JSON.stringify(data, null, '\t')}
+    {JSON.stringify(data, null, '\n')}
   </div>
 )
 

@@ -42,10 +42,6 @@ const EmailReportChartRecharts = ({ selectedData,
                                     width,
                                    }) => {
 
-  // const container = document.getElementById('email-report')
-  // const width = container ? container.offsetWidth * .66 : 0
-  console.log('selected data:', selectedData);
-
   if(selectedData) {
     return (
       <div className="chart">

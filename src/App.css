@@ -211,6 +211,16 @@ input[type="checkbox"] {
   width: auto;
   padding: .5em;
 }
+.table {
+  margin-top: 1em;
+}
+.table-header {
+  width: 100%;
+  display: inline-flex;
+  justify-content: flex-end;
+  padding: 1em;
+}
+
 .slicer {
   width: 180px;
   margin: 0;
