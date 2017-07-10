@@ -18,6 +18,7 @@ export const trendColors = [
   '#A11692',
   '#861388',
 ]
+export const dayMillis = 86400000
 
 export const sections = [
   // {
@@ -102,7 +103,7 @@ export const rates = [
     value: 'delivery_rate',
     color: trendColors[0],
     params: ['opens', 'deliveries'],
-    eq: (opens, deliveries) => opens/deliveries,
+    eq: (opens, deliveries) => parseInt(opens, 10)/parseInt(deliveries, 10),
     positive: true,
   },
   {
@@ -110,7 +111,7 @@ export const rates = [
     value: 'open_rate',
     color: trendColors[1],
     params: ['opens', 'emails_sent'],
-    eq: (opens, emails_sent) => opens/emails_sent,
+    eq: (opens, emails_sent) => parseInt(opens, 10)/parseInt(emails_sent, 10),
     positive: true,
   },
   {
@@ -118,7 +119,7 @@ export const rates = [
     value: 'click_to_open_rate',
     color: trendColors[2],
     params: ['opens', 'clicks'],
-    eq: (opens, clicks) => clicks/opens,
+    eq: (opens, clicks) => parseInt(clicks, 10)/parseInt(opens, 10),
     positive: true,
   },
   {
@@ -126,7 +127,7 @@ export const rates = [
     value: 'click_through_rate',
     color: trendColors[3],
     params: ['clicks', 'emails_sent', 'hard_bounces', 'soft_bounces'],
-    eq: (clicks, emails_sent, hard_bounces, soft_bounces) => clicks/(emails_sent - hard_bounces - soft_bounces),
+    eq: (clicks, emails_sent, hard_bounces, soft_bounces) => parseInt(clicks, 10)/(parseInt(emails_sent, 10) - parseInt(hard_bounces, 10) - parseInt(soft_bounces, 10)),
     positive: true,
   },
   {
@@ -134,7 +135,7 @@ export const rates = [
     value: 'bounce_rate',
     color: trendColors[4],
     params: ['emails_sent', 'hard_bounces', 'soft_bounces'],
-    eq: (emails_sent, hard_bounces, soft_bounces) => (hard_bounces + soft_bounces)/emails_sent,
+    eq: (emails_sent, hard_bounces, soft_bounces) => (parseInt(hard_bounces, 10) + parseInt(soft_bounces, 10))/parseInt(emails_sent, 10),
     positive: false,
   },
   {
@@ -142,7 +143,7 @@ export const rates = [
     value: 'unsubscribe_rate',
     color: trendColors[5],
     params: ['unsubscribes', 'emails_sent'],
-    eq: (unsubscribes, emails_sent) => unsubscribes/emails_sent,
+    eq: (unsubscribes, emails_sent) => parseInt(unsubscribes, 10)/parseInt(emails_sent, 10),
     positive: false,
   },
 ]
@@ -164,9 +165,40 @@ export const timeGroups = [
     label: 'Quarter',
     value: 'quarter',
   },
+  // {
+  //   label: 'Year',
+  //   value: 'year',
+  // },
+]
+
+export const days = [
   {
-    label: 'Year',
-    value: 'year',
+    abv: 'Sun',
+    label: 'Sunday',
+  },
+  {
+    abv: 'Mon',
+    label: 'Monday',
+  },
+  {
+    abv: 'Tue',
+    label: 'Tuesday',
+  },
+  {
+    abv: 'Wed',
+    label: 'Wednesday',
+  },
+  {
+    abv: 'Thu',
+    label: 'Thursday',
+  },
+  {
+    abv: 'Fri',
+    label: 'Friday',
+  },
+  {
+    abv: 'Sat',
+    label: 'Saturday',
   },
 ]
 
@@ -221,36 +253,24 @@ export const months = [
   },
 ]
 
-export const days = [
-  {
-    abv: 'Sun',
-    label: 'Sunday',
+export const quarters = {
+  q1: {
+    abv: 'Q1',
+    value: [0, 1, 2],
   },
-  {
-    abv: 'Mon',
-    label: 'Monday',
+  q2: {
+    abv: 'Q2',
+    value: [3, 4, 5],
   },
-  {
-    abv: 'Tue',
-    label: 'Tuesday',
+  q3: {
+    abv: 'Q3',
+    value: [6, 7, 8],
   },
-  {
-    abv: 'Wed',
-    label: 'Wednesday',
+  q4: {
+    abv: 'Q4',
+    value: [9, 10, 11],
   },
-  {
-    abv: 'Thu',
-    label: 'Thursday',
-  },
-  {
-    abv: 'Fri',
-    label: 'Friday',
-  },
-  {
-    abv: 'Sat',
-    label: 'Saturday',
-  },
-]
+}
 
 export const sliceParams = {
   accounts: {
@@ -288,8 +308,6 @@ export const dynamicStyles = {
     }
   }
 }
-
-export const getMetricsSelected = selectedData =>  Object.keys(selectedData[0]).filter( k => k !== 'timestamp')
 
 export const addToArr = (arr, val) => {
   return [...arr, val]
@@ -368,6 +386,15 @@ export const aggregateByTime = (selectedData, time) => {
 
 export const sortByValues = (arrToSortBy, arrToSort) => {
   const findIndex = val => arrToSortBy.indexOf( arrToSortBy.find( a => a.value === val) )
-
   return arrToSort.sort( (x, y) =>  findIndex(x) - findIndex(y) )
+}
+
+export const removeDupes = arr => {
+  let noDupes = []
+  arr.forEach( a => {
+    if(!noDupes.includes(a)){
+      noDupes = [...noDupes, a]
+    }
+  })
+  return noDupes
 }
