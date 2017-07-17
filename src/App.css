@@ -2,7 +2,8 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
-  font-size: 1.25vw;
+  font-size: 1.1vw;
+  font-family: 'Nunito', sans-serif;
 }
 
 h1 {
@@ -30,7 +31,7 @@ h5 {
 .section-sidebar {
   display: flex;
   flex-direction: column;
-  width: 20%;
+  width: 17%;
   min-height: 94vh;
   color: white;
   background-image:
@@ -40,6 +41,10 @@ h5 {
   padding: 1em;
   background-color: #351c29;
   text-align: left;
+}
+.company-header h2 {
+  font-family: 'Pacifico', cursive;
+  text-shadow: 1px 2px gray;
 }
 .user-header {
   display: inline-flex;
@@ -75,7 +80,7 @@ li.section:active {
   background-size: cover;
 }
 .ReactTabs {
-  width: 80%;
+  width: 83%;
   background-color: #f7f7f7;
 }
 .ReactTabs__TabList {
@@ -127,7 +132,7 @@ li.section:active {
   border-radius: 5px;
 }
 .metric-select, .rate-select {
-  width: 17%;
+  width: 15%;
 }
 .time-group {
   display: inline-flex;
@@ -135,9 +140,49 @@ li.section:active {
   padding-bottom: 1em;
   justify-content: space-between;
 }
-/*.time-group > p {
-  padding: 0 1em 0 0;
-}*/
+.headline {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+.card {
+  background-color: white;
+  border: 1px solid #DBDBDB;
+  border-radius: .4em;
+  width: 11em;
+  padding: .4em;
+  margin-bottom: .7em;
+}
+.card-title {
+  color: #E15460;
+  font-size: 1.2em;
+  font-weight: bolder;
+}
+.card-value {
+  font-size: 1.4em;
+  font-weight: 900;
+}
+.card > div {
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-change {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 5.6em;
+  padding: 0 .2em 0 .2em;
+  border-radius: .3em;
+  border: 1px solid #a8a2aa;
+}
+.card-change i {
+  font-size: 2.4em;
+}
+.card-change p {
+  font-size: 1.1em;
+}
 input[type="button"] {
   margin: 0 .25em;
   height: 2em;
@@ -157,6 +202,7 @@ input[type="checkbox"] {
   width: 14px;
   border-radius: 5px;
   box-shadow: 1px 1px 1px gray;
+  font-family: 'Pacifico', cursive;
 }
 .value-checkbox > label {
   font-size: 2.25em;
@@ -166,6 +212,19 @@ input[type="checkbox"] {
   width: auto;
   padding: .5em;
 }
+.table {
+  margin-top: 1em;
+}
+.table-header {
+  width: 100%;
+  display: inline-flex;
+  justify-content: flex-end;
+  padding: 1em;
+}
+/*.rt-resizable-header-content {
+  font-size: .25em important! ;
+}*/
+
 .slicer {
   width: 180px;
   margin: 0;

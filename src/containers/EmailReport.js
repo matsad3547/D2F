@@ -5,14 +5,15 @@ import {
   rates,
   addToArr,
   removeFromArr,
-  calcRateVal,
-  aggregateByTime,
+  sortByValues,
   } from '../utils/'
 
+import TimeGroupingBar from '../components/TimeGroupingBar'
+import HeadlineCards from '../components/HeadlineCards'
+import EmailReportChart from '../components/EmailReportChart'
 import MetricSelection from '../components/MetricSelection'
 import RateSelection from '../components/RateSelection'
-import TimeGroupingBar from '../components/TimeGroupingBar'
-import EmailReportChart from '../components/EmailReportChart'
+import EmailReportTable from '../components/EmailReportTable'
 
 import SlicersAndDicers from './SlicersAndDicers'
 
@@ -21,7 +22,6 @@ export default class EmailReport extends Component {
     super(props)
     this.state = {
         data: {},
-        selectedData: [],
         metricsSelected: ['emails_sent'],
         ratesSelected: ['delivery_rate'],
         timeGroup: 'month',
@@ -39,17 +39,15 @@ export default class EmailReport extends Component {
     this.selectMetric = this.selectMetric.bind(this)
     this.selectRate = this.selectRate.bind(this)
     this.setTimeGroup = this.setTimeGroup.bind(this)
-    this.getSelectedData = this.getSelectedData.bind(this)
   }
 
   componentWillMount() {
 
-    fetch('https://api.github.com/gists/b20d0e6e7966fcfd732934b6bfea7ca2')
+    fetch('https://api.github.com/gists/64d000bdb6233a83802eee0fbb54f8c7')
     .then( res => res.json() )
     .then( res => {
-
       this.setState({
-        data: JSON.parse(res.files['D2F-test'].content)
+        data: JSON.parse(res.files['Charteco-Demo-Data'].content),
       })
     })
     .catch( err => console.error('There was an error:', err) )
@@ -60,13 +58,13 @@ export default class EmailReport extends Component {
     const index = metricsSelected.indexOf(metric)
     if (index !== -1 && metricsSelected.length > 1) {
       this.setState({
-        metricsSelected: removeFromArr(metricsSelected, metric)
+        metricsSelected: removeFromArr(metricsSelected, metric),
       })
     }
     else {
       this.setState({
-        metricsSelected: addToArr(metricsSelected, metric)
-,      })
+        metricsSelected: addToArr(metricsSelected, metric),
+      })
     }
   }
   selectRate(rate){
@@ -90,65 +88,47 @@ export default class EmailReport extends Component {
     })
   }
 
-  getSelectedData() {
-    const data = this.state.data
-    if (data.timeseries !== undefined){
-
-      const metricVals = metrics.map( obj => obj.value )
-      const rateVals = rates.map( obj => obj.value )
-      // const metrics = this.state.metricsSelected
-      // const rates = this.state.ratesSelected
-      const time = this.state.timeGroup
-      const timeSeries = data.timeseries
-      const selectedData = aggregateByTime(timeSeries, time)
-                            .map( obj => {
-        let selectedObj = {
-          period: obj.period,
-        }
-        metricVals.forEach( met => {
-          Object.assign( selectedObj, {[met]: obj[met]})
-        })
-        // metrics.forEach( met => {
-        //   Object.assign( selectedObj, {[met]: obj[met]})
-        // })
-        rateVals.forEach( rate => {
-          Object.assign( selectedObj, calcRateVal(obj, rate))
-        // rates.forEach( rate => {
-        //   Object.assign( selectedObj, calcRateVal(obj, rate))
-        })
-        return selectedObj
-      })
-      return selectedData
-    }
-  }
-
   render() {
     const container = document.getElementById('email-report')
-    const width = container ? container.offsetWidth * .66 : 0
+    const width = container ? container.offsetWidth : 0
+
+    const { data,
+            timeGroup,
+            slices,
+            metricsSelected,
+            ratesSelected
+          } = this.state
 
     return (
       <div className="report">
         <TimeGroupingBar
           setTimeGroup={this.setTimeGroup}
-          timeGroupSelected={this.state.timeGroup}>
-          <SlicersAndDicers slices={this.state.slices}/>
+          timeGroupSelected={timeGroup}>
+          <SlicersAndDicers slices={slices}/>
         </TimeGroupingBar>
+        <HeadlineCards
+          selectedData={data[timeGroup]}
+          />
         <div className="interactive-chart block" id="email-report">
           <EmailReportChart
-            selectedData={this.getSelectedData()}
-            metricsSelected={this.state.metricsSelected}
-            ratesSelected={this.state.ratesSelected}
-            width={width}
+            selectedData={data[timeGroup]}
+            metricsSelected={sortByValues(metrics, metricsSelected)}
+            ratesSelected={sortByValues(rates, ratesSelected)}
+            width={width * .66}
             />
           <MetricSelection
             selectMetric={this.selectMetric}
-            metricsSelected={this.state.metricsSelected}
+            metricsSelected={metricsSelected}
             />
           <RateSelection
             selectRate={this.selectRate}
-            ratesSelected={this.state.ratesSelected}
+            ratesSelected={ratesSelected}
             />
         </div>
+        <EmailReportTable
+          tableData={data.table_data}
+          width={width}
+          />
       </div>
     );
   }

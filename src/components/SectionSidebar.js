@@ -3,7 +3,7 @@ import { sections } from '../utils/'
 
 const SectionSidebar = ({user, userCompany}) => (
   <div className="section-sidebar">
-    <div className="company-header"><h2>charteco</h2></div>
+    <div className="company-header"><h2>Charteco</h2></div>
     <div className="user-header">
       <span className="icon-user"></span>
       <div>
