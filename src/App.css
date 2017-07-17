@@ -221,6 +221,9 @@ input[type="checkbox"] {
   justify-content: flex-end;
   padding: 1em;
 }
+/*.rt-resizable-header-content {
+  font-size: .25em important! ;
+}*/
 
 .slicer {
   width: 180px;

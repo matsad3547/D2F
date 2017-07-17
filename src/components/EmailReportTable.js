@@ -4,12 +4,14 @@ import 'react-table/react-table.css'
 import Button from './Button'
 import { metrics, rates } from '../utils/'
 
-const EmailReportTable = ({ tableData }) => {
+const EmailReportTable = ({ tableData, width }) => {
+  console.log('width at table:', width);
 
   const metricColumns = metrics.map( metric => {
     return {
       Header: metric.label,
       accessor: metric.value,
+      minWidth: width/16,
     }
   })
 
@@ -18,6 +20,7 @@ const EmailReportTable = ({ tableData }) => {
       id: rate.value,
       Header: rate.label,
       accessor: d => (parseFloat(d[rate.value]) * 100 ).toFixed(1) + '%' ,
+      minWidth: width/16,
     }
   })
 
@@ -25,7 +28,7 @@ const EmailReportTable = ({ tableData }) => {
     {
       Header: 'Email Name',
       accessor: 'name',
-      minWidth: 190,
+      minWidth: width/7.5,
     },
     ...metricColumns,
     ...rateColumns,
@@ -40,9 +43,11 @@ const EmailReportTable = ({ tableData }) => {
             onClick={ () => console.log('Downloading CSV')} />
         </div>
         <ReactTable
+          className="-striped -highlight"
           data={tableData}
           columns={columns}
           minRows={10}
+
           />
       </div>
     )

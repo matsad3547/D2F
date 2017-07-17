@@ -90,7 +90,7 @@ export default class EmailReport extends Component {
 
   render() {
     const container = document.getElementById('email-report')
-    const width = container ? container.offsetWidth * .66 : 0
+    const width = container ? container.offsetWidth : 0
 
     const { data,
             timeGroup,
@@ -114,7 +114,7 @@ export default class EmailReport extends Component {
             selectedData={data[timeGroup]}
             metricsSelected={sortByValues(metrics, metricsSelected)}
             ratesSelected={sortByValues(rates, ratesSelected)}
-            width={width}
+            width={width * .66}
             />
           <MetricSelection
             selectMetric={this.selectMetric}
@@ -126,7 +126,9 @@ export default class EmailReport extends Component {
             />
         </div>
         <EmailReportTable
-          tableData={data.table_data} />
+          tableData={data.table_data}
+          width={width}
+          />
       </div>
     );
   }
