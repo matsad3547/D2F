@@ -81,5 +81,3 @@ const HeadlineCards = ({ selectedData }) => {
 }
 
 export default HeadlineCards
-
-// parseFloat((((selectedData[selectedData.length - 1][rate.value] - selectedData[selectedData.length - 2][rate.value])/selectedData[selectedData.length - 2][rate.value]) * 100).toFixed(1))

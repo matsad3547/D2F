@@ -5,7 +5,6 @@ import Button from './Button'
 import { metrics, rates } from '../utils/'
 
 const EmailReportTable = ({ tableData, width }) => {
-  console.log('width at table:', width);
 
   const metricColumns = metrics.map( metric => {
     return {

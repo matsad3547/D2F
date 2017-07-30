@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { sections } from '../utils/'
 
 const SectionSidebar = ({user, userCompany}) => (
@@ -13,7 +14,7 @@ const SectionSidebar = ({user, userCompany}) => (
     </div>
     <div className="sections">
       <ul>
-        {sections.map( (sec, i) => <li className="section sb-button" key={i}><span className={sec.span}></span><p>{sec.label}</p><span className="icon-arrow-right"></span></li>)}
+        {sections.map( (sec, i) => <li className="section sb-button" key={i}><Link to={sec.link}></Link><span className={sec.span}></span><p>{sec.label}</p><span className="icon-arrow-right"></span></li>)}
       </ul>
       <ul className="sign-out">
         <li className="section"><span className="icon-logout"></span>Sign Out<span></span></li>

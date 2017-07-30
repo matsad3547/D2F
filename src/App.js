@@ -27,7 +27,7 @@ class App extends Component {
           userCompany={this.state.userCompany}
           />
         <div className="footer">
-          <p>Boogie Charts Inc
+          <p>Charteco, Inc
           Salt Lake City, Utah</p>
         </div>
       </div>

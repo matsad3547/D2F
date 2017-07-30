@@ -27,6 +27,7 @@ export const sections = [
   // },
   {
     label: 'Email Report',
+    link: '/',
     span: 'icon-envelope',
   },
   // {
@@ -43,6 +44,7 @@ export const sections = [
   // },
   {
     label: 'Account Settings',
+    link: '/accounts',
     span: 'icon-settings',
   },
 ]
