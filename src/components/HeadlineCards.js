@@ -1,8 +1,5 @@
 import React from 'react'
-import {
-  metrics,
-  rates,
-  } from '../utils/'
+import { metrics, rates } from '../config/'
 import Card from './Card'
 
 const HeadlineCards = ({ selectedData }) => {

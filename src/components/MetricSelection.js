@@ -1,6 +1,6 @@
 import React from 'react'
 import ValueCheckbox from './ValueCheckbox'
-import { metrics } from '../utils/'
+import { metrics } from '../config/'
 
 const MetricSelection = ({ selectMetric, metricsSelected }) => {
 

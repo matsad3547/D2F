@@ -1,5 +1,5 @@
 import React from 'react'
-import { sliceParams } from '../utils/'
+import { sliceParams } from '../config/'
 import SliceCheckbox from './SliceCheckbox'
 
 const SliceGroup = ({ slice,

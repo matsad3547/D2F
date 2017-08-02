@@ -1,5 +1,5 @@
 import React from 'react'
-import { metrics, rates, months, days } from '../utils/'
+import { metrics, rates, months, days } from '../config/'
 import {ComposedChart, Line, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts'
 
 const CustomToolTip = ({  type,

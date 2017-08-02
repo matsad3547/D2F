@@ -2,7 +2,7 @@ import React from 'react'
 import ReactTable from 'react-table'
 import 'react-table/react-table.css'
 import Button from './Button'
-import { metrics, rates } from '../utils/'
+import { metrics, rates } from '../config/'
 
 const EmailReportTable = ({ tableData, width }) => {
 

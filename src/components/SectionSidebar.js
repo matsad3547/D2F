@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { sections } from '../utils/'
+import { sections } from '../config/'
 
 const SectionSidebar = ({user, userCompany}) => (
   <div className="section-sidebar">
@@ -14,7 +14,7 @@ const SectionSidebar = ({user, userCompany}) => (
     </div>
     <div className="sections">
       <ul>
-        {sections.map( (sec, i) => <li className="section sb-button" key={i}><Link to={sec.link}></Link><span className={sec.span}></span><p>{sec.label}</p><span className="icon-arrow-right"></span></li>)}
+        {sections.map( (sec, i) => <li className=" sb-button" key={i}><Link className="section" to={sec.link}><span className={sec.span}></span><p>{sec.label}</p><span className="icon-arrow-right"></span></Link></li>)}
       </ul>
       <ul className="sign-out">
         <li className="section"><span className="icon-logout"></span>Sign Out<span></span></li>

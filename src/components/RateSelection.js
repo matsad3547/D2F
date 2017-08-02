@@ -1,6 +1,6 @@
 import React from 'react'
 import ValueCheckbox from './ValueCheckbox'
-import { rates } from '../utils/'
+import { rates } from '../config/'
 
 const RateSelection = ({ selectRate, ratesSelected }) => {
 

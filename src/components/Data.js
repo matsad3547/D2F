@@ -1,13 +1,19 @@
 import React from 'react'
 import {
-  metrics,
-  rates,
-  months,
+  // metrics,
+  // rates,
+  // months,
   calcRateVal,
   quarters,
   dayMillis,
   removeDupes,
  } from '../utils'
+
+import {
+  metrics,
+  rates,
+  months,
+} from '../config/'
 
 const getRandoNum = max => Math.round(Math.random() * (max) + Math.round(Math.random() * 50))
 

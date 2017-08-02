@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import './App.css'
 import Main from './components/Main'
+import Footer from './components/Footer'
 
 class App extends Component {
   constructor(props) {
@@ -26,10 +26,7 @@ class App extends Component {
           user={this.state.user}
           userCompany={this.state.userCompany}
           />
-        <div className="footer">
-          <p>Charteco, Inc
-          Salt Lake City, Utah</p>
-        </div>
+        <Footer />
       </div>
     );
   }

@@ -1,8 +1,6 @@
 import React, { Component } from 'react'
-import fetch from 'isomorphic-fetch'
+import { metrics, rates } from '../config/'
 import {
-  metrics,
-  rates,
   addToArr,
   removeFromArr,
   sortByValues,

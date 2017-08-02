@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class Login extends Component {
+export default class CampaignComparison extends Component {
   // constructor(props){
   //   super(props)
   // }
@@ -8,7 +8,7 @@ export default class Login extends Component {
   render(){
     return (
       <div>
-        This is the login page
+        This is the campaign comparison page
       </div>
     )
   }
