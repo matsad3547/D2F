@@ -87,7 +87,7 @@ h5 {
   background-color: #f7f7f7;
 }
 .ReactTabs__TabList {
-  background-color: #a8a2aa;
+  background-color: #DBDBDB;
   text-align: left;
   margin: 0 !important;
 }
@@ -99,16 +99,35 @@ h5 {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 2;
+  border-top: 1px solid #a8a2aa !important;
 }
 .ReactTabs__Tab {
+  top: .3em;
   padding: 1em !important;
+  background-color: #f7f7f7 !important;
+  border-radius: .6em .6em 0 0;
+  border-right: 2px solid #a8a2aa !important;
+  border-top: 1px solid #a8a2aa !important;
+  border-left: 1px solid #a8a2aa !important;
 }
 .ReactTabs__Tab--selected {
+  position: relative;
+  z-index: 3;
+  top: .15em;
   background-color: #f7f7f7 !important;
+  border-radius: .6em .6em 0 0 !important;
+  border-right: 2px solid #a8a2aa !important;
 }
 .ReactTabs__Tab > span {
   font-size: 1.5em;
   margin-right: .5em;
+}
+.ReactTabs__Tab > span.icon-user {
+  padding: .25em;
+  border: solid 1px black;
+  border-radius: 1em;
 }
 .block {
   background-color: white;

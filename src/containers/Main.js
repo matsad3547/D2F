@@ -1,11 +1,14 @@
 import React, { Component } from 'react'
 import SectionSidebar from '../components/SectionSidebar'
 import Footer from '../components/Footer'
-import TabBody from '../components/TabBody'
+// import TabBody from '../components/TabBody'
 
-import { tabs } from '../config'
+// import { tabs } from '../config'
 
 import EmailReport from '../containers/EmailReport'
+import CampaignComparison from '../containers/CampaignComparison'
+import ListGrowth from '../containers/ListGrowth'
+import EmailInsights from '../containers/EmailInsights'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 
 export default class Main extends Component {
@@ -16,8 +19,6 @@ export default class Main extends Component {
         userCompany: 'D2F',
       }
   }
-
-
 
   render() {
 
@@ -38,22 +39,22 @@ export default class Main extends Component {
           <Tabs className="tabs">
             <TabList>
               <Tab><span className="icon-envelope"></span>Email Report</Tab>
-              <Tab>Campaign Comparisons</Tab>
-              <Tab>Lists and Contacts</Tab>
-              <Tab>Predictive</Tab>
+              <Tab><span className="icon-docs"></span>Campaign Comparisons</Tab>
+              <Tab><span className="icon-rocket"></span>Lists Growth</Tab>
+              <Tab><span className="icon-vector"></span>Email Insights</Tab>
             </TabList>
 
             <TabPanel>
               <EmailReport />
             </TabPanel>
             <TabPanel>
-              <p>Campaign Comparisons will go here</p>
+              <CampaignComparison />
             </TabPanel>
             <TabPanel>
-              <p>Lists and Contracts will go here</p>
+              <ListGrowth />
             </TabPanel>
             <TabPanel>
-              <p>Predictive stuff will go here</p>
+              <EmailInsights />
             </TabPanel>
           </Tabs>
         </div>
