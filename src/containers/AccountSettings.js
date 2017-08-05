@@ -40,20 +40,28 @@ export default class AccountSettings extends Component {
       <div className="account-settings report">
         <div className="profile settings block">
           <h3>Profile</h3>
-          This is the account settings page
+          <p>
+
+            This is the account settings page
+          </p>
+          <Button
+            value={'View Details'}
+            onClick={ () => console.log('editing user profile') }/>
         </div>
         <div className="settings">
           <div className="user-access block">
             <h3>User Access</h3>
             <p>You have {accountUsers} team members with platform access.</p>
             <Button
-              value={'View Details'} />
+              value={'View Details'}
+              onClick={ () => console.log('showing user access info') }/>
           </div>
           <div className="subscription block">
             <h3>Subscription</h3>
             <p>Your subscription is active as a <span>basic account</span> and will automatically renew on <span>1/1/2018</span>.  Your current plan is $99.00 + tax per month.</p>
             <Button
-              value={'View Details'} />
+              value={'View Details'}
+              onClick={ () => console.log('showing subscription info') }/>
           </div>
         </div>
       </div>
