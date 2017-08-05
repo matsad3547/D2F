@@ -66,7 +66,7 @@ const EmailReportChartRecharts = ({ selectedData,
   }
   else {
     return (
-      <div className="chart">Data is loading...</div>
+      <div className="chart">Chart is building...</div>
     )
   }
 }
