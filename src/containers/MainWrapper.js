@@ -5,18 +5,43 @@ import SectionSidebar from '../components/SectionSidebar'
 
 // import { tabs } from '../config'
 
-import AccountSettings from '../containers/AccountSettings'
-import DataAccounts from '../containers/DataAccounts'
-
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
+// import EmailReport from '../containers/EmailReport'
+// import CampaignComparison from '../containers/CampaignComparison'
+// import ListGrowth from '../containers/ListGrowth'
+// import EmailInsights from '../containers/EmailInsights'
+// import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 
 export default class Main extends Component {
   constructor(props) {
     super(props)
     this.state = {
-        user: 'Noobie Matt',
-        userCompany: 'D2F',
+      loading: false,
+      loaded: false,
+      currentUser: null,
       }
+  }
+  componentWillMount(){
+    this.setState({
+      loading: true,
+    })
+    fetch('https://api.github.com/gists/3f9676cf0438778fab39a8235fff6f2d')
+    .then( res => res.json() )
+    .then( res => {
+       const currentUser = JSON.parse(res.files['Charteco-Demo-User'].content).currentUser
+       this.setState({
+         loading: false,
+         loaded: true,
+         currentUser,
+       })
+    })
+    .catch( error => {
+      console.error('There was an error loading user data:', error)
+      this.setState({
+        error,
+        loading: false,
+        loaded: false,
+      })
+    })
   }
 
   render() {
@@ -29,26 +54,11 @@ export default class Main extends Component {
     }
 
     return (
-      <div>
-        <div className="main">
-          <SectionSidebar
-            user={this.state.user}
-            userCompany={this.state.userCompany}
-            />
-          <Tabs className="tabs">
-            <TabList>
-              <Tab><span className="icon-user"></span>Account Settings</Tab>
-              <Tab><span className="icon-docs"></span>Data Accounts</Tab>
-            </TabList>
-
-            <TabPanel>
-              <AccountSettings />
-            </TabPanel>
-            <TabPanel>
-              <DataAccounts />
-            </TabPanel>
-          </Tabs>
-        </div>
+      <div className="main">
+        <SectionSidebar
+          currentUser={this.state.currentUser}
+          />
+        {this.props.children}
       </div>
     );
   }

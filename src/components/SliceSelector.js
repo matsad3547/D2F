@@ -2,7 +2,6 @@ import React from 'react'
 import SliceGroup from './SliceGroup'
 import Button from './Button'
 import { dynamicStyles, sliceParams } from '../config/'
-import { sortByValues } from '../utils/'
 
 const SliceSelector = ({  shown,
                           slices,

@@ -63,7 +63,8 @@ export default class AccountSettings extends Component {
             <h3>Profile</h3>
             <img
               className="profile-picture"
-               src="http://currentsurroundings.com/content/random/calvin-hobbes/large/calvin_and_hobbes_001.jpg"></img>
+               src={currentUser.userProfilePic}
+               alt=""></img>
             <h4>Username</h4>
             <p>{currentUser.userName}</p>
             <h4>Email</h4>

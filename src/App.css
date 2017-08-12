@@ -48,14 +48,18 @@ h5 {
 }
 .user-header {
   display: inline-flex;
+  justify-content: space-around;
   padding: 1em
 }
 .user-header > span {
   font-size: 1.8em;
+  height: 2.2em;
   padding: .5em;
   border: solid 1px white;
-  border-radius: 1em;
-  margin-right: .5em;
+  border-radius: 50%;
+}
+.user-info {
+  flex-basis: 0;
 }
 .sections {
   flex-grow: 1;
@@ -325,8 +329,15 @@ input[type="checkbox"] {
   margin-top: 1em;
 }
 .profile-picture{
-  width: 10em;
   border-radius: 50%;
+}
+.profile .profile-picture {
+  width: 10em;
+  height: 10em;
+}
+.user-header .profile-picture {
+  width: 5em;
+  height: 5em;
 }
 .subscription span {
   font-weight: 600;

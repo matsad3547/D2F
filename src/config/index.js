@@ -33,7 +33,7 @@ export const sections = [
   },
   {
     label: 'Social Report',
-    link: '/social',
+    link: '/social_report',
     span: 'icon-like',
   },
   // {
@@ -50,7 +50,7 @@ export const sections = [
   // },
   {
     label: 'Account Settings',
-    link: '/accounts',
+    link: '/account_settings',
     span: 'icon-settings',
   },
 ]

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import SectionSidebar from '../components/SectionSidebar'
-import Footer from '../components/Footer'
+// import Footer from '../components/Footer'
 // import TabBody from '../components/TabBody'
 
 // import { tabs } from '../config'
@@ -15,9 +15,33 @@ export default class Main extends Component {
   constructor(props) {
     super(props)
     this.state = {
-        user: 'Noobie Matt',
-        userCompany: 'D2F',
+      loading: false,
+      loaded: false,
+      currentUser: null,
       }
+  }
+  componentWillMount(){
+    this.setState({
+      loading: true,
+    })
+    fetch('https://api.github.com/gists/3f9676cf0438778fab39a8235fff6f2d')
+    .then( res => res.json() )
+    .then( res => {
+       const currentUser = JSON.parse(res.files['Charteco-Demo-User'].content).currentUser
+       this.setState({
+         loading: false,
+         loaded: true,
+         currentUser,
+       })
+    })
+    .catch( error => {
+      console.error('There was an error loading user data:', error)
+      this.setState({
+        error,
+        loading: false,
+        loaded: false,
+      })
+    })
   }
 
   render() {
@@ -33,8 +57,7 @@ export default class Main extends Component {
       <div>
         <div className="main">
           <SectionSidebar
-            user={this.state.user}
-            userCompany={this.state.userCompany}
+            currentUser={this.state.currentUser}
             />
           <Tabs className="tabs">
             <TabList>

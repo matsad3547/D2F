@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import SliceSelector from '../components/SliceSelector'
 import { addToArr, removeFromArr } from '../utils/'
+import { dynamicStyles } from '../config/'
 
 export default class SlicersAndDicers extends Component {
   constructor(props){
@@ -51,15 +52,12 @@ export default class SlicersAndDicers extends Component {
   }
 
   selectSlice({ slice, val }){
-    console.log('slice:', slice, 'val', val);
     const slices = this.state.slicesSelected[slice]
-    console.log('slices:', slices);
     if (!slices.includes(val)){
       const slicesSelected = {
         ...this.state.slicesSelected,
         [slice]: addToArr(slices, val)
       }
-      console.log('slices selected:', slicesSelected);
       this.setState({
         slicesSelected,
       })
@@ -76,22 +74,12 @@ export default class SlicersAndDicers extends Component {
   }
 s
   render(){
-    const style = {
-      clicked: {
-        background: '#351c28',
-        color: '#fefefe',
-      },
-      normal: {
-        background: '#bebebe',
-        color: '#351c28',
-      }
-    }
-    console.log('slices at Slice Selector: ', this.props.slices);
+
     return(
       <div className="slicer" ref={this.setWrapperRef} style={ this.state.shown ? {width: '15em'} : {width: 'auto'}}>
         <input
           className="button-static"
-          style={ this.state.shown ? style.clicked : style.normal }
+          style={ this.state.shown ? dynamicStyles.button.clicked : dynamicStyles.button.normal }
           type="button"
           onClick={this.onClick}
           value="Slicers & Dicers"
