@@ -32,13 +32,13 @@ h5 {
   display: flex;
   flex-direction: column;
   width: 17%;
-  min-height: 94vh;
+  min-height: 100vh;
   color: white;
   background-image:
   linear-gradient( #6a273a, #351c29);
 }
 .company-header {
-  padding: 1em;
+  padding: .2em 0 .2em 1em;
   background-color: #351c29;
   text-align: left;
 }
@@ -74,8 +74,8 @@ h5 {
   cursor: pointer;
 }
 .sb-button {
-  border-top: 1.25px solid #351c29;
-  border-bottom: 1.25px solid #6a273a;
+  /*border-top: 1.25px solid #351c29;*/
+  /*border-bottom: 1.25px solid #6a273a;*/
 }
 .section:active {
   background-image:
@@ -93,7 +93,7 @@ h5 {
 }
 .ReactTabs__TabPanel {
   background-color: #f7f7f7;
-  padding: 1em 1.5em !important;
+  padding: .5em 1em !important;
   width: 100%;
   margin: 0;
   display: flex;
@@ -119,6 +119,7 @@ h5 {
   background-color: #f7f7f7 !important;
   border-radius: .6em .6em 0 0 !important;
   border-right: 2px solid #a8a2aa !important;
+  font-weight: 600;
 }
 .ReactTabs__Tab > span {
   font-size: 1.5em;
@@ -143,23 +144,30 @@ h5 {
   width: 100%;
 }
 .interactive-chart h4 {
-  padding: 1em 0 .5em 0;
+  padding: .5em 0;
+}
+.chart {
+  width: 76%;
 }
 .chart > h4 {
-  padding-left: 1em;
+  padding-left: .5em;
 }
 .tooltip {
   background-color: white;
   border: 1px solid #a8a2aa;
   border-radius: 5px;
 }
+.recharts-tooltip-wrapper {
+  z-index: 2;
+}
 .metric-select, .rate-select {
-  width: 15%;
+  width: 12%;
+  font-size: .8em;
 }
 .time-group {
   display: inline-flex;
   width: 100%;
-  padding-bottom: 1em;
+  padding-bottom: .5em;
   justify-content: space-between;
 }
 .headline {
@@ -172,17 +180,17 @@ h5 {
   border: 1px solid #DBDBDB;
   border-radius: .4em;
   width: 11em;
-  padding: .4em;
-  margin-bottom: .7em;
+  padding: .3em;
+  margin-bottom: .5em;
 }
 .card-title {
   color: #E15460;
-  font-size: 1.2em;
-  font-weight: bolder;
+  font-size: 1em;
+  font-weight: 600;
 }
 .card-value {
-  font-size: 1.4em;
-  font-weight: 900;
+  font-size: 1.2em;
+  font-weight: 600;
 }
 .card > div {
   width: 100%;
@@ -194,16 +202,16 @@ h5 {
   display: inline-flex;
   justify-content: space-between;
   align-items: center;
-  width: 5.6em;
+  width: 6em;
   padding: 0 .2em 0 .2em;
   border-radius: .3em;
   border: 1px solid #a8a2aa;
 }
 .card-change i {
-  font-size: 2.4em;
+  font-size: 2em;
 }
 .card-change p {
-  font-size: 1.1em;
+  font-size: 1em;
 }
 input[type="button"] {
   margin: 0 .25em;
@@ -235,13 +243,13 @@ input[type="checkbox"] {
   padding: .5em;
 }
 .table {
-  margin-top: 1em;
+  margin-top: .5em;
 }
 .table-header {
   width: 100%;
   display: inline-flex;
   justify-content: flex-end;
-  padding: 1em;
+  padding: .5em;
 }
 /*.rt-resizable-header-content {
   font-size: .25em important! ;
@@ -254,16 +262,17 @@ input[type="checkbox"] {
   position: relative;
   margin: 0;
   width: 100%;
-  z-index: 1;
+  z-index: 2;
 }
 .slice-and-dice {
   position: absolute;
-  top: 6em;
+  top: 1em;
   padding-top: 2em;
   width: 15em;
   background-color: white;
   border-radius: .5em;
   border: 1px solid #a8a2aa;
+  z-index: 1;
 }
 .slice-group {
   display: flex;
@@ -298,14 +307,29 @@ input[type="checkbox"] {
   padding: 1.5em;
 }
 .account-settings .block h3 {
-  font-weight: bold;
+  font-weight: 600;
+}
+.account-settings h4 {
+  padding: .1em;
+}
+.account-settings p {
+  padding: .2em;
+}
+.account-settings input[type="button"] {
+  margin-top: 1.5em;
 }
 .settings {
   width: 49%;
 }
 .settings .block:nth-child(2n) {
   margin-top: 1em;
-  /*background: red;*/
+}
+.profile-picture{
+  width: 10em;
+  border-radius: 50%;
+}
+.subscription span {
+  font-weight: 600;
 }
 .footer {
   text-align: center;

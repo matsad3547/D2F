@@ -312,6 +312,9 @@ export const sliceParams = {
   lists: {
     label: 'Lists',
   },
+  campaigns: {
+    label: 'Campaigns'
+  },
   segments: {
     label: 'Segments',
   },
@@ -323,9 +326,6 @@ export const sliceParams = {
   },
   members: {
     label: 'Members',
-  },
-  campaignsOrEmails: {
-    label: 'Campaigns/Emails'
   },
 }
 

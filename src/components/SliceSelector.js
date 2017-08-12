@@ -1,14 +1,17 @@
 import React from 'react'
 import SliceGroup from './SliceGroup'
 import Button from './Button'
-import { dynamicStyles } from '../config/'
+import { dynamicStyles, sliceParams } from '../config/'
+import { sortByValues } from '../utils/'
 
 const SliceSelector = ({  shown,
                           slices,
                           slicesSelected,
                           selectSlice,
                          }) => {
-  const sliceKeys = Object.keys(slices)
+
+  const sliceKeys = Object.keys(sliceParams)
+
   const style = dynamicStyles.button
 
   if (shown) {

@@ -10,11 +10,11 @@ export default class SlicersAndDicers extends Component {
       slicesSelected: {
         accounts: [],
         lists: [],
+        campaigns: [],
         segments: [],
         interestCategories: [],
         locations: [],
         members: [],
-        campaignsOrEmails: [],
       }
     }
     this.onClick = this.onClick.bind(this)
@@ -86,6 +86,7 @@ s
         color: '#351c28',
       }
     }
+    console.log('slices at Slice Selector: ', this.props.slices);
     return(
       <div className="slicer" ref={this.setWrapperRef} style={ this.state.shown ? {width: '15em'} : {width: 'auto'}}>
         <input

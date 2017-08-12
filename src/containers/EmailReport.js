@@ -19,20 +19,16 @@ export default class EmailReport extends Component {
   constructor(props) {
     super(props)
     this.state = {
+        loading: false,
+        loaded: false,
+        error: null,
         data: {},
         metricsSelected: ['emails_sent'],
         ratesSelected: ['delivery_rate'],
         timeGroup: 'month',
-        slices: {
-          accounts: ['Account A', 'Account B', 'Account C'],
-          lists: ['List A', 'List B'],
-          segments: ['Segment A', 'Segment B'],
-          interestCategories: ['Interest A', 'Interest B'],
-          locations: ['Utah', 'California', 'Oregon'],
-          members: ['Dick Hertz', 'Bobby Pin'],
-          campaignsOrEmails: ['Newsletter A', 'Promo B'],
-        },
-        slicesSelected: {},
+        slices: {},
+        slicesSelected: null,
+        tableData: null,
       }
     this.selectMetric = this.selectMetric.bind(this)
     this.selectRate = this.selectRate.bind(this)
@@ -40,15 +36,37 @@ export default class EmailReport extends Component {
   }
 
   componentWillMount() {
-
+    this.setState({
+      loading: true
+    })
     fetch('https://api.github.com/gists/64d000bdb6233a83802eee0fbb54f8c7')
     .then( res => res.json() )
     .then( res => {
+      const data = JSON.parse(res.files['Charteco-Demo-Data'].content)
       this.setState({
-        data: JSON.parse(res.files['Charteco-Demo-Data'].content),
+        data: {
+          day: data.day,
+          week: data.week,
+          month: data.month,
+          quarter: data.quarter
+        },
+        slices: data.slices,
+        tableData: data.table_data,
       })
     })
-    .catch( err => console.error('There was an error:', err) )
+    .then( () => this.setState({
+        loading: false,
+        loaded: true,
+      })
+    )
+    .catch( error => {
+      console.error('There was an error loading email data:', error)
+      this.setState({
+        error,
+        loading: false,
+        loaded: false,
+      })
+    })
   }
 
   selectMetric(metric){
@@ -65,6 +83,7 @@ export default class EmailReport extends Component {
       })
     }
   }
+
   selectRate(rate){
     const ratesSelected = this.state.ratesSelected
     const index = ratesSelected.indexOf(rate)
@@ -87,15 +106,22 @@ export default class EmailReport extends Component {
   }
 
   render() {
-    const container = document.getElementById('email-report')
-    const width = container ? container.offsetWidth : 0
 
-    const { data,
+    const { loading,
+            loaded,
+            error,
+            data,
             timeGroup,
             slices,
             metricsSelected,
-            ratesSelected
+            ratesSelected,
+            tableData,
           } = this.state
+
+    const container = document.getElementById('email-report')
+    const width = container ? container.offsetWidth : 0
+    const height = container ? container.offsetHeight : 0
+    console.log('height at email report:', height);
 
     return (
       <div className="report">
@@ -112,7 +138,8 @@ export default class EmailReport extends Component {
             selectedData={data[timeGroup]}
             metricsSelected={sortByValues(metrics, metricsSelected)}
             ratesSelected={sortByValues(rates, ratesSelected)}
-            width={width * .66}
+            width={width * .76}
+            height={height}
             />
           <MetricSelection
             selectMetric={this.selectMetric}
@@ -124,10 +151,10 @@ export default class EmailReport extends Component {
             />
         </div>
         <EmailReportTable
-          tableData={data.table_data}
+          tableData={tableData}
           width={width}
           />
       </div>
-    );
+    )
   }
 }

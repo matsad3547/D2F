@@ -16,7 +16,7 @@ const CustomToolTip = ({  type,
   if(active) {
     return (
       <div className="tooltip">
-        <p style={{padding: padding, fontSize: '1.5em'}}>{
+        <p style={{padding: padding, fontSize: '1em'}}>{
             monthAbvs.includes(label) ?
             months.find( month => month.abv === label).label :
              ( dayAbvs.includes(label) ? days.find( day => day.abv === label ).label : label)}</p>
@@ -40,13 +40,14 @@ const CustomToolTip = ({  type,
 const EmailReportChartRecharts = ({ selectedData,
                                     metricsSelected, ratesSelected,
                                     width,
+                                    height,
                                    }) => {
-
+                                     console.log('selected data:', selectedData, metricsSelected);
   if(selectedData) {
     return (
       <div className="chart">
         <h4>Performance Trend</h4>
-        <ComposedChart className="chart" width={width} height={400} data={selectedData}
+        <ComposedChart className="chart" width={width} height={200} data={selectedData}
           margin={{top: 20, right: 20, bottom: 20, left: 0}}>
           <YAxis yAxisId="rate" hide={true}/>
           <XAxis dataKey="period"/>
