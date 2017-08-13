@@ -1,6 +1,6 @@
 import React from 'react'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
-import AccountSettings from '../containers/AccountSettings'
+import AccountSettings from './AccountSettings'
 import DataAccounts from '../containers/DataAccounts'
 
 const AccountTabs = (currentUser) => (

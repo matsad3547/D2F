@@ -238,6 +238,9 @@ input[type="checkbox"] {
   box-shadow: 1px 1px 1px gray;
   font-family: 'Pacifico', cursive;
 }
+input[type="text"], input[type="email"] {
+  width: 50%;
+}
 .value-checkbox > label {
   font-size: 2.25em;
 }

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Profile from '../containers/Profile'
 import UserAccess from '../containers/UserAccess'
 import Subscription from '../containers/Subscription'
