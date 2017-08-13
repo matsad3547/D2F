@@ -32,9 +32,6 @@ const SectionSidebar = ({currentUser}) => {
       </div>
     </div>
   )
-  // if(currentUser){
-  // }
-  // else return null
 }
 
 export default SectionSidebar

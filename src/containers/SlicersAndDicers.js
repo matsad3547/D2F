@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+
 import SliceSelector from '../components/SliceSelector'
 import { addToArr, removeFromArr } from '../utils/'
 import { dynamicStyles } from '../config/'
@@ -47,7 +49,7 @@ export default class SlicersAndDicers extends Component {
   onClick(e){
     e.preventDefault()
     this.setState({
-      shown: !this.state.shown,
+      shown: this.state.shown ? false : true,
     })
   }
 
@@ -92,4 +94,8 @@ s
       </div>
     )
   }
+}
+
+SlicersAndDicers.propTypes = {
+  slices: PropTypes.object.isRequired,
 }

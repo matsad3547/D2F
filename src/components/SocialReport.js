@@ -3,8 +3,8 @@ import React from 'react'
 
 // import { Link } from 'react-router-dom'
 
-const SocialReport = (context) => {
-console.log('context at social report:', context);
+const SocialReport = (currentUser) => {
+console.log('props at social report:', currentUser);
   return (
     <div>
       <h2>Welcome to Charteco!</h2>

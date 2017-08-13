@@ -1,19 +1,9 @@
 import React, { Component } from 'react'
 import SectionSidebar from '../components/SectionSidebar'
-// import Footer from '../components/Footer'
-// import TabBody from '../components/TabBody'
-
-// import { tabs } from '../config'
-
-// import EmailReport from '../containers/EmailReport'
-// import CampaignComparison from '../containers/CampaignComparison'
-// import ListGrowth from '../containers/ListGrowth'
-// import EmailInsights from '../containers/EmailInsights'
-// import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 
 export default class Main extends Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super()
     this.state = {
       loading: false,
       loaded: false,
@@ -46,58 +36,13 @@ export default class Main extends Component {
 
   render() {
 
-    try {
-      // console.log('selected data:', this.getSelectedData())
-    }
-    catch (ex){
-      console.error(ex)
-    }
-
     return (
       <div className="main">
         <SectionSidebar
           currentUser={this.state.currentUser}
           />
-        {this.props.children}
+        {React.cloneElement(this.props.children, this.state.currentUser)}
       </div>
-    );
+    )
   }
 }
-
-// <TabBody
-//   tabs={tabs.email}/>
-
-// const Main = ({ user, userCompany }) => {
-//
-//   return (
-//     <div className="main">
-//       <SectionSidebar
-//         user={user}
-//         userCompany={userCompany}
-//         />
-      // <Tabs className="tabs">
-      //   <TabList>
-      //     <Tab><span className="icon-envelope"></span>Email Report</Tab>
-      //     <Tab>Campaign Comparisons</Tab>
-      //     <Tab>Lists and Contacts</Tab>
-      //     <Tab>Predictive</Tab>
-      //   </TabList>
-      //
-      //   <TabPanel>
-      //     <EmailReport />
-      //   </TabPanel>
-      //   <TabPanel>
-      //     <p>Campaign Comparisons will go here</p>
-      //   </TabPanel>
-      //   <TabPanel>
-      //     <p>Lists and Contracts will go here</p>
-      //   </TabPanel>
-      //   <TabPanel>
-      //     <p>Predictive stuff will go here</p>
-      //   </TabPanel>
-      // </Tabs>
-//     </div>
-//   )
-// }
-//
-// export default Main

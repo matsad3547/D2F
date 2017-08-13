@@ -1,12 +1,12 @@
-import Main from '../containers/Main'
+import Email from '../components/Email'
 import Login from '../containers/Login'
-import Accounts from '../containers/Accounts'
+import Accounts from '../components/Accounts'
 import Social from '../containers/Social'
 
 const routes = [
   {
     exact_path: '/',
-    component: Main,
+    component: Email,
   },
   {
     path: '/login',

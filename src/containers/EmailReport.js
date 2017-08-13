@@ -120,8 +120,6 @@ export default class EmailReport extends Component {
 
     const container = document.getElementById('email-report')
     const width = container ? container.offsetWidth : 0
-    const height = container ? container.offsetHeight : 0
-    console.log('height at email report:', height);
 
     return (
       <div className="report">
@@ -139,7 +137,6 @@ export default class EmailReport extends Component {
             metricsSelected={sortByValues(metrics, metricsSelected)}
             ratesSelected={sortByValues(rates, ratesSelected)}
             width={width * .76}
-            height={height}
             />
           <MetricSelection
             selectMetric={this.selectMetric}

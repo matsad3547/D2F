@@ -42,7 +42,7 @@ const EmailReportChartRecharts = ({ selectedData,
                                     width,
                                     height,
                                    }) => {
-                                     console.log('selected data:', selectedData, metricsSelected);
+
   if(selectedData) {
     return (
       <div className="chart">
