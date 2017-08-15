@@ -3,7 +3,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 import AccountSettings from './AccountSettings'
 import DataAccounts from '../containers/DataAccounts'
 
-const AccountTabs = (currentUser) => (
+const AccountTabs = (currentUser, fetchUser) => (
 
   <Tabs className="tabs">
     <TabList>
@@ -13,7 +13,8 @@ const AccountTabs = (currentUser) => (
 
     <TabPanel>
       <AccountSettings
-        currentUser={currentUser}/>
+        currentUser={currentUser}
+        fetchUser={fetchUser}/>
     </TabPanel>
     <TabPanel>
       <DataAccounts />

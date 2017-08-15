@@ -310,7 +310,7 @@ input[type="text"], input[type="email"] {
   justify-content: space-between;
   padding: 1.5em .5em .5em ;
 }
-.account-settings .block {
+.account-settings .block, .data-accounts .block {
   padding: 1.5em;
 }
 .account-settings .block h3 {
@@ -345,11 +345,47 @@ input[type="text"], input[type="email"] {
 .subscription span {
   font-weight: 600;
 }
-.footer {
+.data-accounts {
+  padding: 1.5em .5em .5em ;
+  width: 100%;
+}
+.data-accounts>.block {
+  display: flex;
+  flex-direction: column;
+  min-height: 75vh;
+}
+.data-account > h3 {
+  padding-bottom: .5em;
+}
+.account {
+  display: inline-flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
+}
+.account img {
+  margin-right: 2em;
+}
+.account .mail-chimp {
+  height: 2.994em;
+  width: 2.856em;
+}
+.account div {
+  display: inline-flex;
+  align-items: center;
+}
+.data-accounts > .block input {
+  align-self: flex-end;
+  margin-top: auto;
+}
+.account-buttons {
+  padding-bottom: .6em;
+
+}
+/*.footer {
   text-align: center;
   bottom: 0;
   width: 100%;
   height: 4vh;
   background-color: #a8a2aa;
   padding: 2em;
-}
+}*/

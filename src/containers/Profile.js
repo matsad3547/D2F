@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Button from '../components/Button'
 
-
 export default class Profile extends Component {
   constructor(props){
     super(props)
@@ -38,6 +37,8 @@ export default class Profile extends Component {
       sending: true,
       sent: false,
     })
+    console.log('fetch user:', this.props);
+    // this.props.fetchUser()
     setTimeout( () => {
       this.setState({
         sending: false,

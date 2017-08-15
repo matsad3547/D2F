@@ -39,6 +39,10 @@ export default class EmailReport extends Component {
     this.setState({
       loading: true
     })
+    this.fetchData()
+  }
+
+  fetchData(){
     fetch('https://api.github.com/gists/64d000bdb6233a83802eee0fbb54f8c7')
     .then( res => res.json() )
     .then( res => {
